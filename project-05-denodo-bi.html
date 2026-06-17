@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>98% Query Time Reduction — Denodo BI (Trans Alta) | Shabih ul Hasnain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="project-shared.css"/>
+</head>
+<body>
+<nav>
+  <a href="shabih_portfolio.html" class="nav-logo">Shabih<span>.</span></a>
+  <a href="shabih_portfolio.html#projects" class="nav-back">← All Projects</a>
+  <button class="theme-btn" id="themeToggle" title="Toggle theme">☀️</button>
+</nav>
+
+<div class="proj-hero-banner">
+  <div class="banner-bg" style="background:linear-gradient(135deg,#0a1f30 0%,#0f1a28 100%)"></div>
+  <div class="banner-gradient" style="background:linear-gradient(to top,rgba(9,9,15,0.92) 0%,rgba(9,9,15,0.45) 55%,transparent 100%)"></div>
+  <div class="banner-noise"></div>
+  <div class="banner-content">
+    <div class="proj-cat-pill" style="background:rgba(52,211,153,0.3)">📊 Business Intelligence</div>
+    <h1 class="banner-title">98% Query Time Reduction — Denodo BI (Trans Alta)</h1>
+    <p class="banner-sub">Transformed Trans Alta's BI infrastructure by rebuilding Denodo virtual data models and VQL — cutting critical query times from 40–50 minutes to 30–40 seconds, enabling near-real-time executive decision-making across Canada's energy sector.</p>
+    <div class="stat-strip"><div class="stat-item"><div class="stat-num counter" data-target="98" data-suffix="%" data-prefix="">—</div><div class="stat-unit">Query time reduction</div></div><div class="stat-item"><div class="stat-num counter" data-target="40" data-suffix="–50 min" data-prefix="">—</div><div class="stat-unit">Minutes → seconds (was</div></div><div class="stat-item"><div class="stat-num counter" data-target="5" data-suffix="" data-prefix="">—</div><div class="stat-unit">Executive dashboards delivered</div></div><div class="stat-item"><div class="stat-num counter" data-target="10" data-suffix="–8" data-prefix="">—</div><div class="stat-unit">C-suite stakeholders served</div></div></div>
+  </div>
+</div>
+
+<div class="proj-wrap">
+  <main>
+    <div class="content-block reveal">
+      <div class="sec-label">Overview</div>
+      <div class="prose"><p>Trans Alta is one of Canada's largest publicly traded power generators, operating wind, solar, hydro, and natural gas facilities across North America. Their C-suite depended on BI reporting to make critical operational and strategic decisions — but the BI infrastructure had become a serious bottleneck.</p><p>Critical reports were taking 40–50 minutes to execute. By the time data was available, decisions had already been made on outdated information. The root cause: unoptimised Denodo virtual data models, inefficient VQL queries, and integration patterns creating unnecessary computational overhead across multiple source systems.</p></div>
+    </div>
+
+    <div class="content-block reveal">
+      <div class="sec-label">Challenge & Opportunity</div>
+      <div class="ba-grid">
+        <div class="ba-card before"><div class="ba-label">⚠ Challenge</div><p>Denodo virtual data models had been built iteratively without performance optimisation as a priority. Queries pulled from multiple sources — databases, APIs, cloud platforms, flat files — through inefficient joins, missing caching, and unbounded scopes that forced full data scans on every execution. C-suite confidence in BI as a decision tool was eroding.</p></div>
+        <div class="ba-card after"><div class="ba-label">✦ Opportunity</div><p>A systematic rebuild of Denodo VQL models — with proper caching, push-down optimisation, restructured joins, and role-based security — could deliver near-real-time performance without any new infrastructure investment. The entire gain was achievable through engineering discipline alone.</p></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <div class="sec-label">Solution Delivery</div>
+      <div class="steps"><div class="step reveal"><div class="step-dot">1</div><div class="step-body"><h4>Query Performance Diagnostic</h4><p>Conducted a full audit of existing Denodo base views, derived views, and join strategies to identify the specific patterns causing 40–50 minute execution times. Profiled each bottleneck individually before touching any code.</p></div></div><div class="step reveal"><div class="step-dot">2</div><div class="step-body"><h4>Denodo VQL Model Reconstruction</h4><p>Rebuilt virtual data models from the ground up — implementing push-down query optimisation, eliminating redundant derived views, and restructuring joins to minimise data movement across the virtualisation layer.</p></div></div><div class="step reveal"><div class="step-dot">3</div><div class="step-body"><h4>Caching Configuration & Refresh Strategy</h4><p>Implemented intelligent caching at the Denodo layer for frequently accessed datasets — configuring full and partial cache modes with scheduled refresh cycles that balanced freshness against performance.</p></div></div><div class="step reveal"><div class="step-dot">4</div><div class="step-body"><h4>Role-Based Security & Data Masking</h4><p>Designed and implemented role-based security policies and data masking within Denodo — ensuring sensitive operational and financial data was accessible only to authorised users, with appropriate masking for lower-clearance roles.</p></div></div><div class="step reveal"><div class="step-dot">5</div><div class="step-body"><h4>5 Executive Power BI Dashboards</h4><p>Built 5 executive-level Power BI dashboards connected to the rebuilt Denodo layer — transforming complex multi-source energy datasets into clear narratives for 8–10 C-suite stakeholders.</p></div></div><div class="step reveal"><div class="step-dot">6</div><div class="step-body"><h4>COVID Capacity Compliance Dashboard</h4><p>When COVID-19 required office capacity management, delivered a real-time Power BI monitoring dashboard in 2 months — enabling HR to track employee attendance and enforce safe occupancy limits across all Trans Alta facilities.</p></div></div></div>
+    </div>
+
+    <div class="content-block reveal">
+      <div class="sec-label">Technology Stack</div>
+      <div class="tech-wrap"><span class="tech-tag"><em>🗄️</em>Denodo Platform (VQL)</span><span class="tech-tag"><em>📊</em>Power BI</span><span class="tech-tag"><em>💾</em>SQL</span><span class="tech-tag"><em>🔌</em>REST APIs</span><span class="tech-tag"><em>☁️</em>Cloud Data Sources</span><span class="tech-tag"><em>📄</em>Flat File Integration</span><span class="tech-tag"><em>🔐</em>Role-Based Security</span></div>
+    </div>
+
+    <div class="content-block reveal">
+      <div class="sec-label">Key Outcomes</div>
+      <div class="results"><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>98%+ query time reduction</strong> — reports that took 40–50 minutes now execute in 30–40 seconds, enabling near-real-time BI.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>C-suite data confidence restored</strong> — leadership now uses BI dashboards as primary decision-support tools, replacing delayed manual reporting.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Unified virtualised data layer</strong> — all sources (databases, APIs, cloud, flat files) accessible through a single optimised Denodo layer with role-based security.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>COVID compliance dashboard in 2 months</strong> — rapid Power BI deployment enabled Trans Alta to meet pandemic office compliance requirements on a tight timeline.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Zero additional infrastructure required</strong> — all performance gains achieved through VQL optimisation and caching strategy alone.</div></div></div>
+    </div>
+
+    
+  </main>
+
+  <aside class="sidebar">
+    <div class="side-card">
+      <div class="side-card-title">Project Details</div>
+      <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Trans Alta Corporation</span></div><div class="meta-row"><span class="meta-key">Industry</span><span class="meta-val">Energy / Utilities</span></div><div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">Calgary, Canada</span></div><div class="meta-row"><span class="meta-key">Period</span><span class="meta-val">Feb 2019 – May 2020</span></div><div class="meta-row"><span class="meta-key">Role</span><span class="meta-val">BI Developer — IT Project Services</span></div><div class="meta-row"><span class="meta-key">Performance Gain</span><span class="meta-val">98%+ query time reduction</span></div>
+    </div>
+    <div class="impact-highlight">
+      <div class="sec-label" style="margin-bottom:8px">Top Impact</div>
+      <div class="impact-num">98%</div>
+      <div class="impact-desc">Query time reduction — 40 min to 30 seconds</div>
+    </div>
+    <a href="shabih_portfolio.html#projects" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-muted);border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:12px 16px;transition:all var(--ease)" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)'" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)'">← Back to All Projects</a>
+  </aside>
+</div>
+
+<div class="proj-nav-bar"><a href="project-04-oracle-migration.html" class="pnav-btn prev"><span class="pnav-arrow">←</span><div><span class="pnav-label">Previous</span><span class="pnav-title">Oracle PCM → Unifier Migration</span></div></a><a href="project-06-abudhabi-airport.html" class="pnav-btn next"><div><span class="pnav-label">Next</span><span class="pnav-title">$10B Abu Dhabi Airport Expansion</span></div><span class="pnav-arrow">→</span></a></div>
+
+<script>
+const T=document.getElementById('themeToggle');
+T.addEventListener('click',()=>{const c=document.documentElement.getAttribute('data-theme');document.documentElement.setAttribute('data-theme',c==='dark'?'light':'dark');T.textContent=c==='dark'?'🌙':'☀️';});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+document.querySelectorAll('.counter').forEach(el=>{
+  const target=parseFloat(el.dataset.target);const suffix=el.dataset.suffix||'';const prefix=el.dataset.prefix||'';
+  const isFloat=el.dataset.float==='1';
+  const cobs=new IntersectionObserver(([entry])=>{
+    if(!entry.isIntersecting)return;cobs.unobserve(el);
+    let cur=0;const step=target/60;
+    const t=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(t);}
+    el.textContent=prefix+(isFloat?cur.toFixed(1):Math.floor(cur))+suffix;},20);
+  },{threshold:0.5});
+  cobs.observe(el);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Metrolinx / Comtech — Full Engagement | Shabih ul Hasnain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="project-shared.css"/>
+<style>
+/* ── Engagement-page extras ── */
+.eng-logo-strip{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.eng-logo-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 20px;font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.eng-logo-divider{width:1px;height:32px;background:rgba(255,255,255,0.2)}
+.eng-role-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:0.5px}
+
+/* Engagement timeline */
+.eng-timeline{position:relative;padding-left:28px;margin-top:20px}
+.eng-timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent);border-radius:2px}
+.eng-tl-item{position:relative;margin-bottom:28px}
+.eng-tl-dot{position:absolute;left:-24px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);flex-shrink:0}
+.eng-tl-date{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:4px}
+.eng-tl-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.eng-tl-body{font-size:13.5px;color:var(--text-muted);line-height:1.65}
+
+/* Project highlights grid inside engagement */
+.proj-highlights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.ph-card{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r);padding:20px;position:relative;overflow:hidden;transition:border-color var(--ease),transform var(--ease)}
+.ph-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.ph-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform var(--ease)}
+.ph-card:hover::before{transform:scaleX(1)}
+.ph-icon{font-size:26px;margin-bottom:10px}
+.ph-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.ph-card p{font-size:12.5px;color:var(--text-muted);line-height:1.6}
+.ph-impact{margin-top:10px;font-size:12px;color:var(--accent3);font-weight:700}
+
+/* Scope band */
+.scope-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+.scope-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 16px;font-size:13px;font-weight:600;color:var(--text-muted);display:flex;align-items:center;gap:8px;transition:all var(--ease)}
+.scope-item:hover{border-color:var(--accent);color:var(--text)}
+.scope-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+@media(max-width:640px){.proj-highlights{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="shabih_portfolio.html" class="nav-logo">Shabih<span>.</span></a>
+  <a href="shabih_portfolio.html#timeline" class="nav-back">← Experience</a>
+  <button class="theme-btn" id="themeToggle" title="Toggle theme">☀️</button>
+</nav>
+
+<!-- HERO BANNER -->
+<div class="proj-hero-banner">
+  <div class="banner-bg" style="background:linear-gradient(135deg,#0d2040 0%,#061428 50%,#0a0d24 100%)"></div>
+  <div class="banner-gradient" style="background:linear-gradient(to top,rgba(9,9,15,0.95) 0%,rgba(9,9,15,0.4) 60%,transparent 100%)"></div>
+  <div class="banner-noise"></div>
+  <div class="banner-content">
+    <div class="eng-logo-strip">
+      <div class="eng-logo-badge">Metrolinx</div>
+      <div class="eng-logo-divider"></div>
+      <div class="eng-logo-badge" style="font-size:17px">Comtech</div>
+      <div class="eng-role-pill">Migration Lead &amp; Integration Manager</div>
+    </div>
+    <div class="proj-cat-pill" style="background:rgba(91,141,248,0.3)">🚇 Public Transit · Infrastructure · Oracle · BI</div>
+    <h1 class="banner-title">Metrolinx / Comtech — Toronto, Canada</h1>
+    <p class="banner-sub">3.5-year engagement as Migration Lead and P6 Administration & Integration Manager — delivering one of Canada's most complex Oracle data migrations, rolling out BI platforms to 200+ users, and implementing schedule-cost integrations that redefined how Ontario's regional transit authority managed its capital project portfolio.</p>
+    <div class="stat-strip">
+      <div class="stat-item"><div class="stat-num counter" data-target="120" data-suffix="+">—</div><div class="stat-unit">Projects migrated</div></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="6" data-suffix=" TB">—</div><div class="stat-unit">Data migrated</div></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="300" data-suffix=" hrs">—</div><div class="stat-unit">Saved via SQL analysis</div></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="200" data-suffix="+">—</div><div class="stat-unit">BI users onboarded</div></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="3" data-suffix=" months">—</div><div class="stat-unit">Ahead of schedule</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="proj-wrap">
+  <main>
+
+    <!-- Overview -->
+    <div class="content-block reveal">
+      <div class="sec-label">Engagement Overview</div>
+      <h2 class="sec-title">Leading Data Migration & BI Transformation for Ontario's Transit Authority</h2>
+      <div class="prose">
+        <p>Metrolinx is Ontario's regional transportation authority, responsible for planning, building, and operating transit across the Greater Toronto and Hamilton Area — overseeing billions of dollars in capital infrastructure programs. Comtech was engaged as the program controls and systems implementation partner, and Shabih joined as Migration Lead and Integration Manager to drive two interconnected mandates.</p>
+        <p><strong>Mandate 1:</strong> Migrate 120+ live projects and approximately 6TB of contract, cost, and project data from Oracle PCM (Project Controls Management) — an end-of-life platform — to Oracle Unifier, without disrupting live transit project operations or compromising financial data integrity on publicly-funded infrastructure.</p>
+        <p><strong>Mandate 2:</strong> Simultaneously modernise the reporting and analytics infrastructure — rolling out Tableau and Power BI to 200+ users, implementing real-time P6 + ECOSYS schedule-cost integration, and using advanced SQL modelling to surface workflow efficiencies that hadn't been visible before.</p>
+        <p>The result: a migration completed on time and within budget, delivered 2–3 months ahead of the original schedule — with 300 hours of work effort saved along the way through SQL-driven workflow discovery.</p>
+      </div>
+    </div>
+
+    <!-- Challenge / Opportunity -->
+    <div class="content-block reveal">
+      <div class="sec-label">Challenge &amp; Opportunity</div>
+      <div class="ba-grid">
+        <div class="ba-card before">
+          <div class="ba-label">⚠ Challenge</div>
+          <p>Migrating 120+ live projects meant there was no "freeze the data" option — construction programs were actively running throughout the migration. Oracle PCM and Unifier have fundamentally different data structures, requiring complex field-by-field mapping and multi-layer validation. Any error meant incorrect financial data on a publicly funded transit program.</p>
+        </div>
+        <div class="ba-card after">
+          <div class="ba-label">✦ Opportunity</div>
+          <p>Advanced SQL modelling could do more than just execute the migration — it could analyse existing workflow patterns and surface hidden inefficiencies. The migration became a platform for broader operational improvement, ultimately saving 300 hours and accelerating the full program by 2–3 months.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Engagement Timeline -->
+    <div class="content-block">
+      <div class="sec-label">Engagement Timeline</div>
+      <h2 class="sec-title">3.5 Years · Jun 2020 – Dec 2023</h2>
+      <div class="eng-timeline">
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">Jun 2020 — Phase 1</div>
+          <div class="eng-tl-title">Data Discovery &amp; Migration Architecture</div>
+          <div class="eng-tl-body">Conducted a full inventory of all 120+ Oracle PCM projects. Mapped data structures, identified field-level schema differences between PCM and Unifier, and categorised every project by complexity, data volume, and migration risk. Built the ETL pipeline architecture and validation framework that would govern the entire migration.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">Late 2020 — Phase 2</div>
+          <div class="eng-tl-title">SQL Workflow Analysis — 300 Hours Recovered</div>
+          <div class="eng-tl-body">Built advanced SQL models to analyse existing data patterns across all projects. This uncovered critical workflow redundancies and process bottlenecks that, when resolved, saved 250–300 hours of work effort and accelerated the overall program delivery by 2–3 months ahead of the original schedule.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">2021 — Phase 3</div>
+          <div class="eng-tl-title">Phased Oracle Migration — 6TB, Zero Data Loss</div>
+          <div class="eng-tl-body">Executed migration in carefully sequenced phases — lower-risk projects first to validate the ETL pipeline, then progressively migrating higher-complexity programs while maintaining full operational continuity. Multi-layer validation at every phase ensured 100% data integrity across all 120+ projects.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">2022 — Phase 4</div>
+          <div class="eng-tl-title">Tableau &amp; Power BI Rollout — 200+ Users</div>
+          <div class="eng-tl-body">Led the enterprise rollout of Tableau and Power BI reporting frameworks to 200+ Metrolinx users — including hands-on training sessions that drove full platform adoption and retired the legacy manual reporting processes that had been in place for years.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">2022–2023 — Phase 5</div>
+          <div class="eng-tl-title">P6 + ECOSYS Integration &amp; SharePoint Automation</div>
+          <div class="eng-tl-body">Implemented automated schedule and cost integration between Primavera P6 and ECOSYS — eliminating 6–8 hours per week of manual reconciliation. Simultaneously automated operational workflows via SharePoint and Power Automate, saving 3–4 additional hours per week and improving cross-team data consistency.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">Dec 2023 — Close</div>
+          <div class="eng-tl-title">Engagement Complete — On Time, Within Budget</div>
+          <div class="eng-tl-body">Full engagement concluded with all migration, reporting, and integration objectives delivered — on time, within budget, and 2–3 months ahead of the original program schedule. Oracle Unifier live across all 120+ projects with Tableau, Power BI, and automated integrations fully operational.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Highlights -->
+    <div class="content-block reveal">
+      <div class="sec-label">Key Deliverables</div>
+      <h2 class="sec-title">What Was Delivered</h2>
+      <div class="proj-highlights">
+        <div class="ph-card">
+          <div class="ph-icon">🔄</div>
+          <h4>Oracle PCM → Unifier Migration</h4>
+          <p>120+ projects and ~6TB of contract, cost, and project data migrated end-to-end — zero data loss, zero operational disruption.</p>
+          <div class="ph-impact">✅ On time · Within budget · 2–3 months early</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">🗄️</div>
+          <h4>SQL Workflow Efficiency Discovery</h4>
+          <p>Advanced SQL modelling surfaced hidden process bottlenecks across 120+ projects — unlocking 250–300 hours of work effort savings.</p>
+          <div class="ph-impact">✅ 250–300 hrs saved · 2–3 months ahead of schedule</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">📊</div>
+          <h4>Tableau &amp; Power BI Enterprise Rollout</h4>
+          <p>Full BI platform rollout to 200+ Metrolinx users with hands-on training — legacy manual reporting processes fully retired.</p>
+          <div class="ph-impact">✅ 200+ users · 100% adoption · Manual reporting retired</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">⚡</div>
+          <h4>P6 + ECOSYS Schedule-Cost Integration</h4>
+          <p>Automated real-time integration between Primavera P6 and ECOSYS — eliminated 6–8 hrs/week of manual schedule-cost reconciliation.</p>
+          <div class="ph-impact">✅ 6–8 hrs/week saved · Real-time alignment</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">⚙️</div>
+          <h4>SharePoint &amp; Power Automate Workflows</h4>
+          <p>Automated operational workflows using SharePoint and Power Automate — saving 3–4 hours per week and improving cross-team data consistency.</p>
+          <div class="ph-impact">✅ 3–4 hrs/week saved · Consistent data across teams</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">🔌</div>
+          <h4>REST API &amp; Primavera Data Services</h4>
+          <p>Extracted Primavera P6 data via REST APIs, WSDL APIs, and Primavera Data Services to power downstream reporting and integration pipelines.</p>
+          <div class="ph-impact">✅ Live API feeds powering all downstream BI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scope of Work -->
+    <div class="content-block reveal">
+      <div class="sec-label">Full Scope of Work</div>
+      <div class="scope-grid">
+        <div class="scope-item"><div class="scope-dot"></div>Oracle PCM Administration</div>
+        <div class="scope-item"><div class="scope-dot"></div>Oracle Unifier Implementation</div>
+        <div class="scope-item"><div class="scope-dot"></div>ETL Pipeline Design</div>
+        <div class="scope-item"><div class="scope-dot"></div>SQL Data Modelling</div>
+        <div class="scope-item"><div class="scope-dot"></div>Data Migration (6TB)</div>
+        <div class="scope-item"><div class="scope-dot"></div>Power BI Dashboards</div>
+        <div class="scope-item"><div class="scope-dot"></div>Tableau Reporting</div>
+        <div class="scope-item"><div class="scope-dot"></div>Primavera P6 Admin</div>
+        <div class="scope-item"><div class="scope-dot"></div>ECOSYS Integration</div>
+        <div class="scope-item"><div class="scope-dot"></div>REST / WSDL APIs</div>
+        <div class="scope-item"><div class="scope-dot"></div>Power Automate Flows</div>
+        <div class="scope-item"><div class="scope-dot"></div>SharePoint Automation</div>
+        <div class="scope-item"><div class="scope-dot"></div>User Training Programs</div>
+        <div class="scope-item"><div class="scope-dot"></div>Change Management</div>
+        <div class="scope-item"><div class="scope-dot"></div>Workflow Optimisation</div>
+        <div class="scope-item"><div class="scope-dot"></div>Data Governance</div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="content-block reveal">
+      <div class="sec-label">Technology Stack</div>
+      <div class="tech-wrap">
+        <span class="tech-tag"><em>☁️</em>Oracle Unifier</span>
+        <span class="tech-tag"><em>📋</em>Oracle PCM</span>
+        <span class="tech-tag"><em>🗄️</em>SQL (Advanced)</span>
+        <span class="tech-tag"><em>📊</em>Power BI</span>
+        <span class="tech-tag"><em>📈</em>Tableau</span>
+        <span class="tech-tag"><em>📅</em>Primavera P6</span>
+        <span class="tech-tag"><em>💰</em>ECOSYS</span>
+        <span class="tech-tag"><em>🔌</em>REST API</span>
+        <span class="tech-tag"><em>🔗</em>WSDL API</span>
+        <span class="tech-tag"><em>📡</em>Primavera Data Services</span>
+        <span class="tech-tag"><em>⚡</em>Power Automate</span>
+        <span class="tech-tag"><em>☁️</em>SharePoint</span>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="content-block reveal">
+      <div class="sec-label">Engagement Outcomes</div>
+      <div class="results">
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>120+ projects and ~6TB migrated with zero data loss</strong> — Oracle Unifier live across the entire Metrolinx capital project portfolio, completed on time and within budget.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>2–3 months ahead of the original program schedule</strong> — SQL workflow analysis unlocked efficiencies that accelerated the entire delivery timeline beyond what was planned.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>250–300 hours of work effort permanently recovered</strong> — through identification and elimination of workflow redundancies discovered during the SQL analysis phase.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>200+ users fully adopted modern BI tools</strong> — Tableau and Power BI adoption was 100%, with all legacy manual reporting processes retired.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>6–8 hrs/week saved via P6 + ECOSYS integration</strong> — manual schedule-cost reconciliation eliminated permanently through automated real-time data sync.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>3–4 hrs/week saved via SharePoint automation</strong> — Power Automate workflows replaced manual cross-team coordination and improved data consistency across all programs.</div></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="side-card">
+      <div class="side-card-title">Engagement Details</div>
+      <div class="meta-row"><span class="meta-key">Organisation</span><span class="meta-val">Metrolinx / Comtech</span></div>
+      <div class="meta-row"><span class="meta-key">Sector</span><span class="meta-val">Public Transit / Infrastructure</span></div>
+      <div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">Toronto, Canada</span></div>
+      <div class="meta-row"><span class="meta-key">Duration</span><span class="meta-val">Jun 2020 – Dec 2023</span></div>
+      <div class="meta-row"><span class="meta-key">Role</span><span class="meta-val">Migration Lead / Integration Manager</span></div>
+      <div class="meta-row"><span class="meta-key">Projects Migrated</span><span class="meta-val">120+</span></div>
+      <div class="meta-row"><span class="meta-key">Data Volume</span><span class="meta-val">~6TB</span></div>
+      <div class="meta-row"><span class="meta-key">BI Users</span><span class="meta-val">200+</span></div>
+    </div>
+    <div class="impact-highlight">
+      <div class="sec-label" style="margin-bottom:8px">Top Impact</div>
+      <div class="impact-num">2–3 Months</div>
+      <div class="impact-desc">Delivered ahead of the original program schedule through SQL-driven workflow efficiency discovery</div>
+    </div>
+    <div class="side-card" style="margin-top:0">
+      <div class="side-card-title">Related Project</div>
+      <a href="project-04-oracle-migration.html" style="display:flex;align-items:center;gap:10px;color:var(--text);transition:color var(--ease)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">
+        <span style="font-size:22px">🔄</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:2px">Oracle PCM → Unifier Migration</div>
+          <div style="font-size:11px;color:var(--text-dim)">Full case study →</div>
+        </div>
+      </a>
+    </div>
+    <a href="shabih_portfolio.html#timeline" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-muted);border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:12px 16px;transition:all var(--ease)" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)'" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)'">← Back to Experience</a>
+  </aside>
+</div>
+
+<!-- PREV / NEXT -->
+<div class="proj-nav-bar">
+  <a href="engagement-cenovus.html" class="pnav-btn prev"><span class="pnav-arrow">←</span><div><span class="pnav-label">Also see</span><span class="pnav-title">Cenovus Energy Engagement</span></div></a>
+  <a href="project-04-oracle-migration.html" class="pnav-btn next"><div><span class="pnav-label">Related Project</span><span class="pnav-title">Oracle PCM → Unifier Migration</span></div><span class="pnav-arrow">→</span></a>
+</div>
+
+<script>
+const T=document.getElementById('themeToggle');
+T.addEventListener('click',()=>{const c=document.documentElement.getAttribute('data-theme');document.documentElement.setAttribute('data-theme',c==='dark'?'light':'dark');T.textContent=c==='dark'?'🌙':'☀️';});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+document.querySelectorAll('.counter').forEach(el=>{
+  const target=parseFloat(el.dataset.target);const suffix=el.dataset.suffix||'';
+  const cobs=new IntersectionObserver(([entry])=>{
+    if(!entry.isIntersecting)return;cobs.unobserve(el);
+    let cur=0;const step=target/60;
+    const t=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(t);}
+    el.textContent=Math.floor(cur)+suffix;},20);
+  },{threshold:0.5});
+  cobs.observe(el);
+});
+</script>
+</body>
+</html>

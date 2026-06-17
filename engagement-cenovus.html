@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Cenovus Energy — Full Engagement | Shabih ul Hasnain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="project-shared.css"/>
+<style>
+.eng-logo-strip{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.eng-logo-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 20px;font-family:var(--font-display);font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.eng-role-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:0.5px}
+
+/* Company dual-phase layout */
+.phase-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:16px}
+.phase-card{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r);padding:22px;position:relative;overflow:hidden}
+.phase-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.phase-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);margin-bottom:6px}
+.phase-title{font-size:15px;font-weight:700;margin-bottom:8px}
+.phase-date{font-size:12px;color:var(--text-dim);margin-bottom:12px;font-weight:600}
+.phase-card p{font-size:13px;color:var(--text-muted);line-height:1.65}
+
+/* Engagement timeline */
+.eng-timeline{position:relative;padding-left:28px;margin-top:20px}
+.eng-timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent);border-radius:2px}
+.eng-tl-item{position:relative;margin-bottom:28px}
+.eng-tl-dot{position:absolute;left:-24px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.eng-tl-date{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:4px}
+.eng-tl-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.eng-tl-body{font-size:13.5px;color:var(--text-muted);line-height:1.65}
+
+.proj-highlights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.ph-card{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r);padding:20px;position:relative;overflow:hidden;transition:border-color var(--ease),transform var(--ease)}
+.ph-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.ph-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform var(--ease)}
+.ph-card:hover::before{transform:scaleX(1)}
+.ph-icon{font-size:26px;margin-bottom:10px}
+.ph-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.ph-card p{font-size:12.5px;color:var(--text-muted);line-height:1.6}
+.ph-impact{margin-top:10px;font-size:12px;color:var(--accent3);font-weight:700}
+
+.scope-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+.scope-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 16px;font-size:13px;font-weight:600;color:var(--text-muted);display:flex;align-items:center;gap:8px;transition:all var(--ease)}
+.scope-item:hover{border-color:var(--accent);color:var(--text)}
+.scope-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* Org context banner */
+.org-context{background:linear-gradient(135deg,rgba(251,146,60,0.07),rgba(234,88,12,0.04));border:1px solid rgba(251,146,60,0.18);border-radius:var(--r);padding:22px 24px;margin-top:20px}
+.org-context p{font-size:14px;color:var(--text-muted);line-height:1.75}
+.org-context p strong{color:var(--text)}
+
+/* Before/after numbers */
+.transform-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r);padding:18px 20px;margin-bottom:12px}
+.tr-before{text-align:right}
+.tr-after{text-align:left}
+.tr-num{font-family:var(--font-display);font-size:22px;font-weight:800}
+.tr-before .tr-num{color:#f87171}
+.tr-after .tr-num{color:var(--accent3)}
+.tr-label{font-size:11px;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.8px;margin-top:2px}
+.tr-arrow{font-size:20px;color:var(--text-dim);font-weight:700;text-align:center}
+
+@media(max-width:640px){.proj-highlights,.phase-wrap{grid-template-columns:1fr}.transform-row{grid-template-columns:1fr auto 1fr;gap:8px}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="shabih_portfolio.html" class="nav-logo">Shabih<span>.</span></a>
+  <a href="shabih_portfolio.html#timeline" class="nav-back">← Experience</a>
+  <button class="theme-btn" id="themeToggle" title="Toggle theme">☀️</button>
+</nav>
+
+<!-- HERO BANNER -->
+<div class="proj-hero-banner">
+  <div class="banner-bg" style="background:linear-gradient(135deg,#1a0c00 0%,#2a1200 40%,#1a0800 100%)"></div>
+  <div class="banner-gradient" style="background:linear-gradient(to top,rgba(9,9,15,0.95) 0%,rgba(9,9,15,0.4) 60%,transparent 100%)"></div>
+  <div class="banner-noise"></div>
+  <div class="banner-content">
+    <div class="eng-logo-strip">
+      <div class="eng-logo-badge">Cenovus Energy</div>
+      <div class="eng-role-pill">Sr. Business Analyst · Data Integration & Solution Designer</div>
+    </div>
+    <div class="proj-cat-pill" style="background:rgba(251,146,60,0.28)">🛢 Oil &amp; Gas · Oracle · ERP · Data Integration</div>
+    <h1 class="banner-title">Cenovus Energy — Calgary, Canada</h1>
+    <p class="banner-sub">A multi-phase engagement spanning two roles over six years — first as Business Analyst and Data Conversion Analyst at Accenture on the Cenovus account, then as Sr. Business Analyst and Data Integration & Solution Designer directly at Cenovus Energy. Together these engagements delivered Oracle Contract Management, an 8-feed Maximo integration, and enterprise BI solutions across Canada's largest oil sands capital projects portfolio.</p>
+    <div class="stat-strip">
+      <div class="stat-item"><div class="stat-num counter" data-target="50" data-suffix=" hrs">—</div><div class="stat-unit">Per week saved (was manual)</div></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="8" data-suffix="">—</div><div class="stat-unit">Integration feeds built</div></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="6" data-suffix="">—</div><div class="stat-unit">Years of engagement</div></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="100" data-suffix="%">—</div><div class="stat-unit">Reconciliation automated</div></div>
+      <div class="stat-item"><div class="stat-num counter" data-target="2" data-suffix=" roles">—</div><div class="stat-unit">Across Accenture &amp; Cenovus</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="proj-wrap">
+  <main>
+
+    <!-- Overview -->
+    <div class="content-block reveal">
+      <div class="sec-label">Engagement Overview</div>
+      <h2 class="sec-title">Six Years Transforming Contract Management &amp; BI Across Canada's Oil Sands</h2>
+      <div class="prose">
+        <p>Cenovus Energy is one of Canada's largest integrated oil and natural gas companies, operating significant oil sands assets in northern Alberta and conventional operations across western Canada. Capital project management at this scale — managing contracts, purchase orders, cost actuals, and supplier invoices across dozens of simultaneous construction and maintenance projects — demands enterprise-grade systems and data integration that can match operational complexity.</p>
+        <p>Shabih's engagement with Cenovus spanned two connected phases. The first, from 2012 to 2015, was through <strong>Accenture</strong> as Business Analyst and Data Conversion Analyst on the Cenovus account — designing and implementing Contracts Management solutions using Oracle BI Reporting and Publisher, consolidating AFEs, contracts, purchase orders, vouchers, receipts, and invoices into a unified system. The second phase, from 2016 to 2018, was directly at <strong>Cenovus Energy</strong> as Sr. Business Analyst on the Supply Chain Management Transformation (SCMT) program — architecting an 8-feed data integration between Maximo and Oracle Contract Management that reduced monthly reconciliation from weeks to 2–3 hours.</p>
+      </div>
+
+      <div class="org-context">
+        <p><strong>Context:</strong> Cenovus operates capital projects in some of Canada's most demanding environments — remote oil sands sites with complex contractor interfaces, high-value contracts, and strict financial reporting requirements. The cost of manual data management at this scale wasn't just inefficiency — it was material risk. Errors in contract reconciliation on a multi-billion dollar capital program carry real financial and compliance consequences.</p>
+      </div>
+    </div>
+
+    <!-- Two Phases -->
+    <div class="content-block reveal">
+      <div class="sec-label">Engagement Phases</div>
+      <h2 class="sec-title">Two Roles · Two Organisations · One Continuous Mission</h2>
+      <div class="phase-wrap">
+        <div class="phase-card">
+          <div class="phase-label">Phase 1</div>
+          <div class="phase-title">Accenture / Cenovus Energy</div>
+          <div class="phase-date">Sep 2012 – Sep 2015 · 3 Years</div>
+          <p>Business Analyst and Data Conversion Analyst on the Cenovus account — designing a comprehensive Contracts Management solution using Oracle BI Reporting and Publisher. Consolidated management of AFEs, contracts, purchase orders, standard vouchers, receipts, and invoices into a unified, queryable system for the Project Controls department.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Phase 2</div>
+          <div class="phase-title">Cenovus Energy (Direct)</div>
+          <div class="phase-date">Apr 2016 – Nov 2018 · 2.5 Years</div>
+          <p>Sr. Business Analyst on the Supply Chain Management Transformation (SCMT) program — implementing Oracle Contract Management across all oil sands projects, and architecting an 8-feed bidirectional data integration with Maximo that automated the entire monthly contract reconciliation cycle and saved 40–50 hours per week for Cost Engineers.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Before / After Transformations -->
+    <div class="content-block reveal">
+      <div class="sec-label">Before vs. After</div>
+      <h2 class="sec-title">What Changed</h2>
+      <div class="transform-row">
+        <div class="tr-before"><div class="tr-num">40–50 hrs</div><div class="tr-label">Manual extraction / week</div></div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-after"><div class="tr-num">0 hrs</div><div class="tr-label">Fully automated</div></div>
+      </div>
+      <div class="transform-row">
+        <div class="tr-before"><div class="tr-num">Weeks</div><div class="tr-label">Monthly reconciliation time</div></div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-after"><div class="tr-num">2–3 hrs</div><div class="tr-label">Automated cycle</div></div>
+      </div>
+      <div class="transform-row">
+        <div class="tr-before"><div class="tr-num">Access / Excel</div><div class="tr-label">Legacy data sources</div></div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-after"><div class="tr-num">Oracle CM</div><div class="tr-label">Single source of truth</div></div>
+      </div>
+      <div class="transform-row">
+        <div class="tr-before"><div class="tr-num">Manual</div><div class="tr-label">Maximo ↔ Oracle sync</div></div>
+        <div class="tr-arrow">→</div>
+        <div class="tr-after"><div class="tr-num">8 Live Feeds</div><div class="tr-label">Bidirectional integration</div></div>
+      </div>
+    </div>
+
+    <!-- Engagement Timeline -->
+    <div class="content-block">
+      <div class="sec-label">Work Timeline</div>
+      <h2 class="sec-title">Sep 2012 – Nov 2018 · Six Years</h2>
+      <div class="eng-timeline">
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">Sep 2012 — Accenture / Cenovus · Phase 1 Start</div>
+          <div class="eng-tl-title">Contracts Management Solution Design</div>
+          <div class="eng-tl-body">Engaged as Business Analyst on the Cenovus account through Accenture. Began designing the Contracts Management solution for the Project Controls department — mapping the full contract lifecycle from AFE approval through to invoice processing, and identifying the data structures needed to consolidate everything into Oracle BI.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">2013–2014 — Oracle BI Implementation</div>
+          <div class="eng-tl-title">Oracle BI Reporting &amp; Publisher Build-Out</div>
+          <div class="eng-tl-body">Designed and implemented Oracle BI Reporting and Publisher templates consolidating AFEs, contracts, POs, standard vouchers, receipts, and invoices into a single unified reporting system for Cenovus Project Controls. Cost Engineers gained for the first time a single, queryable view of all contract financial data across the portfolio.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">2014–2015 — Data Conversion</div>
+          <div class="eng-tl-title">System &amp; Data Conversion Analysis</div>
+          <div class="eng-tl-body">Took on the Data Conversion Analyst role — responsible for analysing legacy data structures across Cenovus's existing systems, defining conversion mapping rules, and validating data quality through the migration of historical contract and cost records into the new Oracle environment.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">Apr 2016 — Cenovus Direct · Phase 2 Start</div>
+          <div class="eng-tl-title">Supply Chain Management Transformation (SCMT) Program</div>
+          <div class="eng-tl-body">Joined Cenovus Energy directly as Sr. Business Analyst on the SCMT program. The mandate: implement Oracle Contract Management across all oil sands projects and eliminate the 40–50 hours per week Cost Engineers were spending on manual data extraction from Microsoft Access and Excel legacy systems.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">2016–2017 — Oracle CM Implementation</div>
+          <div class="eng-tl-title">Oracle Contract Management Across All Oil Sands Projects</div>
+          <div class="eng-tl-body">Designed and implemented Oracle Contract Management across Cenovus's complete oil sands capital project portfolio — configuring the system to automate cost reporting, eliminating manual extraction from Access/Excel, and providing Cost Engineers with always-current contract cost visibility.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">2017–2018 — Maximo Integration</div>
+          <div class="eng-tl-title">8-Feed Maximo ↔ Oracle Integration Architecture</div>
+          <div class="eng-tl-body">Architected and built an 8-feed bidirectional data integration between IBM Maximo and Oracle Contract Management — mapping hundreds of fields across both systems covering AFEs, Contracts, Purchase Orders, Standard Vouchers, Receipts, Invoices, Cost Actuals, and Commitments. Monthly reconciliation dropped from several weeks to 2–3 hours.</div>
+        </div>
+        <div class="eng-tl-item">
+          <div class="eng-tl-dot"></div>
+          <div class="eng-tl-date">Nov 2018 — Close</div>
+          <div class="eng-tl-title">SCMT Program Complete</div>
+          <div class="eng-tl-body">SCMT program objectives fully delivered — Oracle CM live across all projects, 8-feed Maximo integration operational, and 40–50 hours per week of Cost Engineer manual effort permanently eliminated. Monthly reconciliation reduced from weeks to 2–3 hours, with Oracle CM established as the single source of truth for all contract financials.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Deliverables -->
+    <div class="content-block reveal">
+      <div class="sec-label">Key Deliverables</div>
+      <h2 class="sec-title">What Was Delivered Across Both Phases</h2>
+      <div class="proj-highlights">
+        <div class="ph-card">
+          <div class="ph-icon">☁️</div>
+          <h4>Oracle Contract Management Implementation</h4>
+          <p>Full Oracle CM deployment across all Cenovus oil sands projects — replacing manual Access/Excel extraction with an always-current automated cost management system.</p>
+          <div class="ph-impact">✅ 40–50 hrs/week recovered for Cost Engineers</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">🔌</div>
+          <h4>8-Feed Maximo Integration</h4>
+          <p>Architected a bidirectional 8-feed integration between IBM Maximo and Oracle CM mapping hundreds of fields across AFEs, contracts, POs, vouchers, receipts, invoices, actuals, and commitments.</p>
+          <div class="ph-impact">✅ Monthly reconciliation: weeks → 2–3 hours</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">📊</div>
+          <h4>Oracle BI Reporting &amp; Publisher</h4>
+          <p>Designed and built comprehensive Oracle BI reporting and Publisher templates consolidating all contract financial data types into a unified, queryable reporting system.</p>
+          <div class="ph-impact">✅ Single view across AFEs, contracts, POs, invoices</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">🗄️</div>
+          <h4>Data Conversion &amp; Migration</h4>
+          <p>Analysed legacy data structures, defined conversion mapping rules, and validated quality through migration of historical contract and cost records into the new Oracle environment.</p>
+          <div class="ph-impact">✅ Clean historical data in Oracle from day one</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">🔄</div>
+          <h4>Agile / Scrum SCMT Delivery</h4>
+          <p>Managed project schedules and team tasks using Agile/Scrum methodology throughout the SCMT program — ensuring structured sprint-based delivery aligned to business priorities.</p>
+          <div class="ph-impact">✅ On-time delivery across all SCMT sprints</div>
+        </div>
+        <div class="ph-card">
+          <div class="ph-icon">📋</div>
+          <h4>Contract Lifecycle Unification</h4>
+          <p>Consolidated management of AFEs, contracts, purchase orders, standard vouchers, receipts, and invoices into a single Oracle system — replacing a fragmented multi-tool landscape.</p>
+          <div class="ph-impact">✅ Six document types unified into one system</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scope -->
+    <div class="content-block reveal">
+      <div class="sec-label">Full Scope of Work</div>
+      <div class="scope-grid">
+        <div class="scope-item"><div class="scope-dot"></div>Oracle Contract Management</div>
+        <div class="scope-item"><div class="scope-dot"></div>IBM Maximo Integration</div>
+        <div class="scope-item"><div class="scope-dot"></div>8-Feed Data Architecture</div>
+        <div class="scope-item"><div class="scope-dot"></div>Oracle BI Reporting</div>
+        <div class="scope-item"><div class="scope-dot"></div>Oracle BI Publisher</div>
+        <div class="scope-item"><div class="scope-dot"></div>AFE Management</div>
+        <div class="scope-item"><div class="scope-dot"></div>PO &amp; Invoice Tracking</div>
+        <div class="scope-item"><div class="scope-dot"></div>Data Conversion Analysis</div>
+        <div class="scope-item"><div class="scope-dot"></div>Requirements Analysis</div>
+        <div class="scope-item"><div class="scope-dot"></div>Agile / Scrum Delivery</div>
+        <div class="scope-item"><div class="scope-dot"></div>Field Mapping (100s)</div>
+        <div class="scope-item"><div class="scope-dot"></div>Cost Reporting Automation</div>
+        <div class="scope-item"><div class="scope-dot"></div>SQL Data Modelling</div>
+        <div class="scope-item"><div class="scope-dot"></div>Supply Chain Transformation</div>
+        <div class="scope-item"><div class="scope-dot"></div>Stakeholder Management</div>
+        <div class="scope-item"><div class="scope-dot"></div>Process Optimisation</div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="content-block reveal">
+      <div class="sec-label">Technology Stack</div>
+      <div class="tech-wrap">
+        <span class="tech-tag"><em>☁️</em>Oracle Contract Management</span>
+        <span class="tech-tag"><em>🔧</em>IBM Maximo</span>
+        <span class="tech-tag"><em>📊</em>Oracle BI Reporting</span>
+        <span class="tech-tag"><em>📄</em>Oracle BI Publisher</span>
+        <span class="tech-tag"><em>🔌</em>8-Feed Data Integration</span>
+        <span class="tech-tag"><em>🗄️</em>SQL</span>
+        <span class="tech-tag"><em>🔄</em>Agile / Scrum</span>
+        <span class="tech-tag"><em>💰</em>AFE &amp; Cost Management</span>
+        <span class="tech-tag"><em>📋</em>Contract Lifecycle Mgmt</span>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="content-block reveal">
+      <div class="sec-label">Engagement Outcomes</div>
+      <div class="results">
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>40–50 hours per week permanently recovered for Cost Engineers</strong> — manual extraction from Microsoft Access and Excel eliminated entirely, replaced by always-current Oracle CM visibility.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Monthly contract reconciliation from weeks to 2–3 hours</strong> — the 8-feed Maximo integration automated a process that previously consumed most of Finance's monthly cycle.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Oracle CM established as the single source of truth</strong> — all contract financials across Cenovus's oil sands capital projects portfolio now in one authoritative system.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Six contract document types unified</strong> — AFEs, contracts, purchase orders, standard vouchers, receipts, and invoices all consolidated into a single Oracle BI reporting environment.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>8-feed bidirectional Maximo integration built and live</strong> — hundreds of fields mapped across both systems, handling every major contract cost data type in real time.</div></div>
+        <div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Clean historical data from day one</strong> — data conversion analysis and quality validation ensured legacy contract records were accurately migrated into the new Oracle environment without data debt.</div></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="side-card">
+      <div class="side-card-title">Engagement Details</div>
+      <div class="meta-row"><span class="meta-key">Organisation</span><span class="meta-val">Cenovus Energy (+ Accenture)</span></div>
+      <div class="meta-row"><span class="meta-key">Sector</span><span class="meta-val">Oil &amp; Gas / Energy</span></div>
+      <div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">Calgary, Canada</span></div>
+      <div class="meta-row"><span class="meta-key">Phase 1</span><span class="meta-val">Sep 2012 – Sep 2015 (Accenture)</span></div>
+      <div class="meta-row"><span class="meta-key">Phase 2</span><span class="meta-val">Apr 2016 – Nov 2018 (Direct)</span></div>
+      <div class="meta-row"><span class="meta-key">Total Duration</span><span class="meta-val">~6 years</span></div>
+      <div class="meta-row"><span class="meta-key">Integration Feeds</span><span class="meta-val">8 bidirectional</span></div>
+      <div class="meta-row"><span class="meta-key">Hours Saved</span><span class="meta-val">40–50 hrs/week</span></div>
+    </div>
+    <div class="impact-highlight">
+      <div class="sec-label" style="margin-bottom:8px">Top Impact</div>
+      <div class="impact-num">Weeks → 2h</div>
+      <div class="impact-desc">Monthly contract reconciliation time — from several weeks down to 2–3 hours via 8-feed Maximo integration</div>
+    </div>
+    <div class="side-card" style="margin-top:0">
+      <div class="side-card-title">Related Project</div>
+      <a href="project-08-cenovus-integration.html" style="display:flex;align-items:center;gap:10px;color:var(--text);transition:color var(--ease)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">
+        <span style="font-size:22px">🛢</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;margin-bottom:2px">Oracle Contracts + Maximo Integration</div>
+          <div style="font-size:11px;color:var(--text-dim)">Full case study →</div>
+        </div>
+      </a>
+    </div>
+    <a href="shabih_portfolio.html#timeline" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-muted);border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:12px 16px;transition:all var(--ease)" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)'" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)'">← Back to Experience</a>
+  </aside>
+</div>
+
+<!-- PREV / NEXT -->
+<div class="proj-nav-bar">
+  <a href="project-08-cenovus-integration.html" class="pnav-btn prev"><span class="pnav-arrow">←</span><div><span class="pnav-label">Related Project</span><span class="pnav-title">Oracle Contracts + Maximo Integration</span></div></a>
+  <a href="engagement-metrolinx.html" class="pnav-btn next"><div><span class="pnav-label">Also see</span><span class="pnav-title">Metrolinx / Comtech Engagement</span></div><span class="pnav-arrow">→</span></a>
+</div>
+
+<script>
+const T=document.getElementById('themeToggle');
+T.addEventListener('click',()=>{const c=document.documentElement.getAttribute('data-theme');document.documentElement.setAttribute('data-theme',c==='dark'?'light':'dark');T.textContent=c==='dark'?'🌙':'☀️';});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+document.querySelectorAll('.counter').forEach(el=>{
+  const target=parseFloat(el.dataset.target);const suffix=el.dataset.suffix||'';
+  const cobs=new IntersectionObserver(([entry])=>{
+    if(!entry.isIntersecting)return;cobs.unobserve(el);
+    let cur=0;const step=target/60;
+    const t=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(t);}
+    el.textContent=Math.floor(cur)+suffix;},20);
+  },{threshold:0.5});
+  cobs.observe(el);
+});
+</script>
+</body>
+</html>

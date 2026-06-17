@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shabih ul Hasnain | Digital Transformation & AI Enablement Leader</title>
+<meta name="description" content="23+ years driving enterprise digital transformation, AI enablement, and project controls across construction, energy, and infrastructure sectors." />
+<meta name="keywords" content="Digital Transformation Consultant, AI Enablement, Project Controls Manager, Oracle Cloud Consultant, PMO Consultant, Business Analyst, AI Automation" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+/* ===== TOKENS ===== */
+:root {
+  --bg: #09090f;
+  --surface: #111118;
+  --surface2: #18181f;
+  --border: #252530;
+  --accent: #5b8df8;
+  --accent2: #a78bfa;
+  --accent-glow: rgba(91,141,248,0.18);
+  --text: #f0f0f5;
+  --text-muted: #8888a0;
+  --text-dim: #555568;
+  --white: #ffffff;
+  --success: #34d399;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.28s cubic-bezier(.4,0,.2,1);
+}
+[data-theme="light"] {
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --surface2: #f0f0f8;
+  --border: #e2e2ee;
+  --accent: #3b6ef0;
+  --accent2: #7c3aed;
+  --accent-glow: rgba(59,110,240,0.12);
+  --text: #0a0a14;
+  --text-muted: #4a4a68;
+  --text-dim: #9898b0;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+a { color: var(--accent); text-decoration: none; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(9,9,15,0.82); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(16px,4vw,48px);
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; transition: background var(--transition);
+}
+[data-theme="light"] nav { background: rgba(247,247,251,0.85); }
+.nav-logo { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color var(--transition); }
+.nav-links a:hover { color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.theme-btn {
+  background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted);
+  border-radius: 50%; width: 36px; height: 36px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+  transition: all var(--transition);
+}
+.theme-btn:hover { color: var(--text); border-color: var(--accent); }
+.btn-nav { background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 8px 18px; font-size: 13px; font-weight: 600; cursor: pointer; transition: opacity var(--transition); }
+.btn-nav:hover { opacity: 0.85; }
+.hamburger { display: none; background: none; border: none; color: var(--text); cursor: pointer; font-size: 22px; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 100px clamp(16px,5vw,80px) 60px;
+  position: relative; overflow: hidden;
+}
+.hero-glow {
+  position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(91,141,248,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute; bottom: -200px; left: 0;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; width: 100%; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-glow); border: 1px solid rgba(91,141,248,0.3); color: var(--accent); border-radius: 100px; padding: 6px 16px; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; }
+.hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 800; line-height: 1.08; letter-spacing: -2px; margin-bottom: 24px; }
+.hero h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { font-size: 18px; color: var(--text-muted); max-width: 560px; margin-bottom: 36px; line-height: 1.7; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
+.btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border: none; border-radius: var(--radius-sm); padding: 13px 28px; font-size: 15px; font-weight: 600; cursor: pointer; transition: opacity var(--transition); }
+.btn-primary:hover { opacity: 0.88; }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 13px 28px; font-size: 15px; font-weight: 500; cursor: pointer; transition: all var(--transition); display: inline-block; }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.hero-stats { display: flex; flex-wrap: wrap; gap: 32px; }
+.stat-num { font-family: var(--font-display); font-size: 36px; font-weight: 800; color: var(--text); letter-spacing: -1px; }
+.stat-num span { color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+.portrait-frame {
+  width: 280px; height: 340px;
+  background: linear-gradient(135deg, var(--surface2), var(--surface));
+  border-radius: 24px; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.portrait-placeholder { text-align: center; color: var(--text-dim); padding: 24px; }
+.portrait-placeholder svg { width: 80px; height: 80px; margin-bottom: 12px; opacity: 0.4; display: block; margin-left: auto; margin-right: auto; }
+.portrait-placeholder p { font-size: 12px; }
+.portrait-badge {
+  position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff; border-radius: 100px; padding: 8px 20px;
+  font-size: 11px; font-weight: 700; white-space: nowrap; letter-spacing: 0.5px;
+}
+
+/* ===== SECTION BASE ===== */
+section { padding: clamp(60px, 8vw, 120px) clamp(16px, 5vw, 80px); }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+.section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--accent); border-radius: 2px; }
+.section-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px; }
+.section-sub { color: var(--text-muted); font-size: 17px; max-width: 620px; line-height: 1.7; margin-bottom: 48px; }
+
+/* ===== ABOUT ===== */
+.about { background: var(--surface); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+.about-text p strong { color: var(--text); }
+.about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.tag { background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted); border-radius: 100px; padding: 5px 14px; font-size: 13px; font-weight: 500; }
+.about-highlights { display: flex; flex-direction: column; gap: 16px; }
+.highlight-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; transition: border-color var(--transition); }
+.highlight-card:hover { border-color: var(--accent); }
+.highlight-icon { width: 40px; height: 40px; background: var(--accent-glow); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.highlight-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.highlight-content p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+/* ===== EXPERTISE ===== */
+.expertise-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.exp-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 28px; transition: all var(--transition); position: relative; overflow: hidden;
+}
+.exp-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0);
+  transform-origin: left; transition: transform var(--transition);
+}
+.exp-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+.exp-card:hover::before { transform: scaleX(1); }
+.exp-icon { font-size: 28px; margin-bottom: 16px; }
+.exp-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+.exp-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.exp-card ul li { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+.exp-card ul li::before { content: '→'; color: var(--accent); font-size: 11px; }
+
+/* ===== PROJECTS ===== */
+.projects { background: var(--surface); }
+.project-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+.tab-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text-muted); border-radius: 100px; padding: 8px 20px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all var(--transition); }
+.tab-btn.active, .tab-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+.project-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all var(--transition); }
+.project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.project-img { height: 160px; background: linear-gradient(135deg, var(--surface2), var(--bg)); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.project-img-icon { font-size: 48px; opacity: 0.4; }
+.project-cat-badge { position: absolute; top: 12px; left: 12px; background: var(--accent); color: #fff; border-radius: 100px; padding: 4px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+.project-body { padding: 24px; }
+.project-body h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.project-body p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+.project-meta { display: flex; flex-direction: column; gap: 6px; }
+.project-meta-row { display: flex; gap: 8px; align-items: center; font-size: 12px; }
+.meta-label { color: var(--text-dim); font-weight: 500; min-width: 70px; }
+.meta-value { color: var(--text-muted); }
+.project-impact { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+.project-impact p { font-size: 12px; color: var(--success); font-weight: 600; }
+.project-detail-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 13px; font-weight: 600; color: var(--accent); transition: gap var(--transition); }
+.project-detail-btn:hover { gap: 10px; }
+
+/* ===== AI LAB ===== */
+.ai-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.ai-card {
+  background: linear-gradient(135deg, var(--surface), var(--surface2));
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 28px;
+  position: relative; overflow: hidden; transition: all var(--transition);
+}
+.ai-card:hover { border-color: var(--accent); }
+.ai-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.ai-card-icon { width: 44px; height: 44px; background: var(--accent-glow); border: 1px solid rgba(91,141,248,0.3); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.ai-card h3 { font-size: 16px; font-weight: 700; }
+.problem-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-top: 16px; margin-bottom: 4px; }
+.ai-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.roi { margin-top: 16px; padding: 10px 14px; background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2); border-radius: var(--radius-sm); font-size: 13px; color: var(--success); font-weight: 600; }
+.tools-used { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tool-tag { background: var(--accent-glow); border: 1px solid rgba(91,141,248,0.2); color: var(--accent); border-radius: 100px; padding: 3px 10px; font-size: 11px; font-weight: 600; }
+
+/* ===== TIMELINE ===== */
+.timeline-section { background: var(--surface); }
+.timeline-list { position: relative; padding-left: 32px; }
+.timeline-list::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent); }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-dot { position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg); }
+.timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.timeline-company { font-size: 17px; font-weight: 700; }
+.timeline-role { font-size: 14px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+.timeline-period { font-size: 13px; color: var(--text-dim); white-space: nowrap; background: var(--surface2); border: 1px solid var(--border); border-radius: 100px; padding: 3px 12px; }
+.timeline-location { font-size: 12px; color: var(--text-dim); margin-bottom: 12px; }
+.timeline-achievements { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.timeline-achievements li { font-size: 13px; color: var(--text-muted); padding-left: 16px; position: relative; line-height: 1.6; }
+.timeline-achievements li::before { content: '▸'; color: var(--accent); position: absolute; left: 0; top: 1px; font-size: 10px; }
+
+/* ===== DASHBOARD ===== */
+.dashboard { background: linear-gradient(135deg, var(--bg) 0%, var(--surface) 100%); }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+.kpi-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px; text-align: center; transition: all var(--transition);
+}
+.kpi-card:hover { border-color: var(--accent); transform: scale(1.03); }
+.kpi-number { font-family: var(--font-display); font-size: 40px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.kpi-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
+
+/* ===== CERTIFICATIONS ===== */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; display: flex; align-items: center; gap: 14px; transition: all var(--transition); }
+.cert-card:hover { border-color: var(--accent); }
+.cert-badge { width: 44px; height: 44px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.cert-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.cert-card p { font-size: 12px; color: var(--text-muted); }
+
+/* ===== INDUSTRIES ===== */
+.industries { background: var(--surface); }
+.industry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+.industry-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; transition: all var(--transition); }
+.industry-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.industry-icon { font-size: 32px; margin-bottom: 10px; }
+.industry-card h4 { font-size: 14px; font-weight: 600; }
+
+/* ===== TESTIMONIALS ===== */
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.testi-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: all var(--transition); position: relative; }
+.testi-card:hover { border-color: var(--accent); }
+.testi-card::before { content: '"'; position: absolute; top: 16px; right: 24px; font-family: var(--font-display); font-size: 80px; color: var(--border); line-height: 1; }
+.testi-text { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.testi-name { font-size: 14px; font-weight: 600; }
+.testi-title { font-size: 12px; color: var(--text-dim); }
+
+/* ===== CONTACT ===== */
+.contact-section { background: var(--surface); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.contact-info h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.contact-info p { color: var(--text-muted); line-height: 1.7; margin-bottom: 28px; font-size: 15px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link { display: flex; align-items: center; gap: 12px; color: var(--text); font-size: 15px; transition: color var(--transition); }
+.contact-link:hover { color: var(--accent); }
+.contact-link-icon { width: 40px; height: 40px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+.form-group input, .form-group textarea, .form-group select {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); padding: 12px 16px; font-size: 15px; font-family: var(--font-body);
+  transition: border-color var(--transition); outline: none; width: 100%;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select { appearance: none; }
+.form-submit { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border: none; border-radius: var(--radius-sm); padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer; transition: opacity var(--transition); width: 100%; }
+.form-submit:hover { opacity: 0.88; }
+
+/* ===== FOOTER ===== */
+footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40px clamp(16px, 5vw, 80px); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-text { font-size: 14px; color: var(--text-dim); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 14px; color: var(--text-dim); transition: color var(--transition); }
+.footer-links a:hover { color: var(--accent); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== SCROLL PROGRESS ===== */
+#progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); z-index: 200; width: 0%; transition: width 0.1s; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--border); padding: 24px; gap: 16px; z-index: 99; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-portrait { display: none; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hero-stats { gap: 20px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <span class="nav-logo">Shabih<span>.</span></span>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#ai-lab">AI Lab</a></li>
+    <li><a href="#timeline">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeToggle" title="Toggle theme">☀️</button>
+    <button class="btn-nav" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Talk</button>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Available for Consulting &amp; Leadership Roles</div>
+      <h1>Driving Digital Transformation Through <em>AI, Data &amp; Enterprise Systems</em></h1>
+      <p class="hero-sub">23+ years delivering enterprise-scale business transformation, intelligent automation, and AI enablement across construction, energy, infrastructure, and public sector organizations.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Consultation</button>
+        <button class="btn-outline" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View Projects</button>
+        <a href="mailto:shabih3di@gmail.com" class="btn-outline">✉ Get in Touch</a>
+        <a href="https://linkedin.com" target="_blank" class="btn-outline">in LinkedIn</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">23<span>+</span></div><div class="stat-label">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">7<span>+</span></div><div class="stat-label">Industries Served</div></div>
+        <div class="stat"><div class="stat-num">120<span>+</span></div><div class="stat-label">Projects Delivered</div></div>
+        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Countries Worked In</div></div>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="portrait-frame">
+        <div class="portrait-placeholder">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="30" r="18" fill="currentColor"/>
+            <path d="M8 72c0-17.67 14.33-32 32-32s32 14.33 32 32" fill="currentColor"/>
+          </svg>
+          <p>Add Photo Here</p>
+        </div>
+        <div class="portrait-badge">Sr. Manager · Digital Transformation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="section-eyebrow">Executive Snapshot</div>
+    <h2 class="section-title">Transforming Enterprises Through Technology &amp; Intelligence</h2>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p><strong>Shabih ul Hasnain</strong> is a seasoned AI Transformation and Digital Strategy Leader with over two decades of proven impact across construction, energy, aviation, and public infrastructure.</p>
+        <p>Currently serving as <strong>Sr. Manager of Digital Transformation</strong> at El-Seif Engineering &amp; Contracting in Saudi Arabia, Shabih leads enterprise-wide AI platform adoption, intelligent automation, and data modernization initiatives — delivering measurable outcomes including the recovery of hundreds of hours per week through automation and real-time C-suite visibility.</p>
+        <p>His career spans programs of extraordinary scale, including a <strong>$10B+ Abu Dhabi International Airport Expansion</strong> and a <strong>$20B+ Al Raha Beach Development</strong>. He has deployed enterprise platforms to thousands of users, migrated terabytes of critical data, and built governance frameworks that align entire organizations around a single source of truth.</p>
+        <p>Shabih bridges the gap between business complexity and technology possibility — translating organizational challenges into scalable AI and digital solutions that create sustainable competitive advantage.</p>
+        <div class="about-tags">
+          <span class="tag">Digital Transformation</span>
+          <span class="tag">AI Enablement</span>
+          <span class="tag">Oracle Unifier</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">InEight</span>
+          <span class="tag">Primavera P6</span>
+          <span class="tag">n8n Automation</span>
+          <span class="tag">Microsoft Copilot</span>
+          <span class="tag">Project Controls</span>
+          <span class="tag">Data Architecture</span>
+          <span class="tag">PMO Governance</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">SharePoint</span>
+          <span class="tag">Power Automate</span>
+        </div>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="highlight-icon">🤖</div>
+          <div class="highlight-content">
+            <h4>AI Strategy &amp; Adoption</h4>
+            <p>Deployed Claude, Copilot, n8n, Emergent, and Lovable to automate workflows and accelerate enterprise project delivery.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🔄</div>
+          <div class="highlight-content">
+            <h4>Enterprise Platform Implementation</h4>
+            <p>Delivered end-to-end deployments of InEight, Oracle Unifier, PCM, and PRISM across multi-country programs worth $30B+.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">📊</div>
+          <div class="highlight-content">
+            <h4>Business Intelligence &amp; Analytics</h4>
+            <p>Built executive dashboards using Power BI, Tableau, and SQL — reducing query times by 98% and retiring manual reporting company-wide.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🏗️</div>
+          <div class="highlight-content">
+            <h4>Project Controls Mastery</h4>
+            <p>23 years of cost control, scheduling, and systems implementation on construction megaprojects across the Middle East and Canada.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🌍</div>
+          <div class="highlight-content">
+            <h4>Global Program Leadership</h4>
+            <p>Led cross-functional teams in UAE, Saudi Arabia, and Canada — supporting 150–600 simultaneous platform users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-inner">
+    <div class="section-eyebrow">Expertise &amp; Services</div>
+    <h2 class="section-title">What I Deliver</h2>
+    <p class="section-sub">End-to-end capability across the digital transformation lifecycle — from AI strategy to enterprise implementation to operational excellence.</p>
+    <div class="expertise-grid reveal">
+      <div class="exp-card">
+        <div class="exp-icon">🤖</div>
+        <h3>AI Enablement</h3>
+        <ul>
+          <li>AI Strategy &amp; Roadmapping</li>
+          <li>AI Adoption Programs</li>
+          <li>Agentic AI &amp; Workflow Design</li>
+          <li>n8n Process Automation</li>
+          <li>Copilot Implementation</li>
+          <li>Claude &amp; ChatGPT Solutions</li>
+          <li>Intelligent Assistants</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">⚡</div>
+        <h3>Digital Transformation</h3>
+        <ul>
+          <li>Digital Governance Frameworks</li>
+          <li>Business Process Optimization</li>
+          <li>Change Management</li>
+          <li>System Integration</li>
+          <li>Data Literacy Programs</li>
+          <li>Platform Adoption</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">📐</div>
+        <h3>Project Controls</h3>
+        <ul>
+          <li>Cost Control &amp; Forecasting</li>
+          <li>Primavera P6 Scheduling</li>
+          <li>KPI Framework Design</li>
+          <li>Executive Reporting</li>
+          <li>Earned Value Management</li>
+          <li>Risk Analysis</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">☁️</div>
+        <h3>Oracle &amp; Cloud Solutions</h3>
+        <ul>
+          <li>Oracle Unifier Implementation</li>
+          <li>Oracle PCM &amp; Contract Mgmt</li>
+          <li>Data Migration Strategy</li>
+          <li>REST/WSDL API Integration</li>
+          <li>ECOSYS &amp; Primavera Connect</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">📊</div>
+        <h3>Business Intelligence</h3>
+        <ul>
+          <li>Power BI Dashboard Design</li>
+          <li>Tableau Reporting</li>
+          <li>SQL Data Modeling</li>
+          <li>Denodo Virtual Data Layers</li>
+          <li>Data Warehouse Migration</li>
+          <li>Executive Analytics</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">🏛️</div>
+        <h3>PMO &amp; Governance</h3>
+        <ul>
+          <li>Portfolio Management</li>
+          <li>Program Controls Standards</li>
+          <li>Governance Framework Design</li>
+          <li>Digital Policy Alignment</li>
+          <li>Stakeholder Management</li>
+          <li>Agile &amp; Scrum Delivery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <div class="section-eyebrow">Featured Projects</div>
+    <h2 class="section-title">Transformations That Delivered</h2>
+    <p class="section-sub">High-impact programs spanning AI automation, enterprise platforms, data modernization, and project controls.</p>
+    <div class="project-tabs">
+      <button class="tab-btn active" onclick="filterProjects('all', this)">All</button>
+      <button class="tab-btn" onclick="filterProjects('ai', this)">AI Projects</button>
+      <button class="tab-btn" onclick="filterProjects('dt', this)">Digital Transformation</button>
+      <button class="tab-btn" onclick="filterProjects('pc', this)">Project Controls</button>
+      <button class="tab-btn" onclick="filterProjects('bi', this)">Business Intelligence</button>
+    </div>
+    <div class="project-grid reveal">
+      <div class="project-card" data-cat="dt">
+        <div class="project-img"><div class="project-img-icon">🏗️</div><span class="project-cat-badge">Digital Transformation</span></div>
+        <div class="project-body">
+          <h3>InEight Platform — Company-Wide Rollout</h3>
+          <p>End-to-end implementation of InEight Project Management with REST API integration to ACONEX, scaling adoption to 80+ active users across live construction projects.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Construction / Engineering</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">InEight, REST API, ACONEX</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Saudi Arabia</span></div>
+          </div>
+          <div class="project-impact"><p>✅ 80–100 hrs/week recovered · 35 document controllers freed from manual entry</p></div>
+          <a href="project-01-ineight.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="ai">
+        <div class="project-img"><div class="project-img-icon">⚡</div><span class="project-cat-badge">AI Project</span></div>
+        <div class="project-body">
+          <h3>Enterprise AI Workflow Automation Suite</h3>
+          <p>Designed and deployed intelligent automation workflows using Claude, Copilot, n8n, Emergent, and Lovable to eliminate repetitive tasks across project and corporate functions.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Construction / Enterprise</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">Claude, n8n, Copilot, Lovable</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Saudi Arabia</span></div>
+          </div>
+          <div class="project-impact"><p>✅ Hundreds of hours/month saved · Measurable cost savings · AI adoption across all departments</p></div>
+          <a href="project-02-ai-automation.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="dt">
+        <div class="project-img"><div class="project-img-icon">📱</div><span class="project-cat-badge">Digital Transformation</span></div>
+        <div class="project-body">
+          <h3>PowerApps Site Inspection Digitization</h3>
+          <p>Replaced paper-based SOR and inspection workflows with a PowerApps solution on iPads — real-time photo uploads, centralized database, zero paper.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Construction</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">PowerApps, SharePoint, Power Automate</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Saudi Arabia</span></div>
+          </div>
+          <div class="project-impact"><p>✅ 4–5 hrs/week saved · Full paper elimination · Real-time central database</p></div>
+          <a href="project-03-powerapps-inspection.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="pc">
+        <div class="project-img"><div class="project-img-icon">🔄</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-body">
+          <h3>Oracle PCM to Unifier Migration (Metrolinx)</h3>
+          <p>Delivered end-to-end migration of 120+ projects and ~6TB of contract data from Oracle PCM to Oracle Unifier — on time and within budget in under 2 years.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Public Transit / Infrastructure</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">Oracle PCM, Unifier, SQL</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Toronto, Canada</span></div>
+          </div>
+          <div class="project-impact"><p>✅ 6TB migrated · 250–300 hrs saved via SQL optimization · 2–3 months ahead of schedule</p></div>
+          <a href="project-04-oracle-migration.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="bi">
+        <div class="project-img"><div class="project-img-icon">📊</div><span class="project-cat-badge">Business Intelligence</span></div>
+        <div class="project-body">
+          <h3>Denodo Query Performance Optimization (Trans Alta)</h3>
+          <p>Rebuilt Denodo virtual data models and VQL, slashing critical query execution from 40–50 minutes down to 30–40 seconds — enabling near-real-time BI delivery.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Energy / Utilities</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">Denodo VQL, Power BI, SQL</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Calgary, Canada</span></div>
+          </div>
+          <div class="project-impact"><p>✅ 98%+ query time reduction · 5 executive dashboards · C-suite decision-making enabled</p></div>
+          <a href="project-05-denodo-bi.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="pc">
+        <div class="project-img"><div class="project-img-icon">✈️</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-body">
+          <h3>$10B Abu Dhabi Airport Expansion (PARSONS)</h3>
+          <p>Supported a 150–200 person program management team with cost and schedule tracking systems, replacing entirely manual processes on a $10B+ program spanning 10+ years.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Aviation / Infrastructure</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">ARES-PRISM, Primavera P6</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Abu Dhabi, UAE</span></div>
+          </div>
+          <div class="project-impact"><p>✅ 60–80 hrs/month saved · $10B+ program · 150–200 team members supported</p></div>
+          <a href="project-06-abudhabi-airport.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="pc">
+        <div class="project-img"><div class="project-img-icon">🌊</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-body">
+          <h3>$20B Al Raha Beach Development (ALDAR LOR)</h3>
+          <p>Trained 500–600 users on Primavera Contract Manager in the largest PCM deployment in the region — 1,000 active platform users on a $20B+ waterfront development.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Real Estate / Construction</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">Primavera CM, ACONEX, P6</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Abu Dhabi, UAE</span></div>
+          </div>
+          <div class="project-impact"><p>✅ 500–600 users trained · 1,000 active users · $20B+ program</p></div>
+          <a href="project-07-alraha-beach.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="bi">
+        <div class="project-img"><div class="project-img-icon">🛢️</div><span class="project-cat-badge">Business Intelligence</span></div>
+        <div class="project-body">
+          <h3>Oracle Contracts + Maximo Integration (Cenovus)</h3>
+          <p>Architected an 8-feed data integration between Maximo and Oracle Contract Management, reducing monthly contract reconciliation from weeks to 2–3 hours.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Oil &amp; Gas / Energy</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">Oracle CM, Maximo, SQL</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Calgary, Canada</span></div>
+          </div>
+          <div class="project-impact"><p>✅ 40–50 hrs/week saved · Weeks of reconciliation → 2–3 hours · 8-feed integration</p></div>
+          <a href="project-08-cenovus-integration.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="pc">
+        <div class="project-img"><div class="project-img-icon">💧</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-body">
+          <h3>$850M Shuweihat Water Transmission Scheme (PROJACS)</h3>
+          <p>Delivered Primavera Expedition implementation for Abu Dhabi's critical water infrastructure program — going live in 6 months against a 2-year planned timeline, onboarding 60 users across 4 distributed sites via Citrix. The first major project of a 23-year career.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Water Infrastructure / Utilities</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">Primavera Expedition, Citrix</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Abu Dhabi, UAE</span></div>
+          </div>
+          <div class="project-impact"><p>✅ Live in 6 months vs. 2-year plan · 60 users · 4 sites · $850M program</p></div>
+          <a href="project-09-shuweihat.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card" data-cat="pc">
+        <div class="project-img"><div class="project-img-icon">🌴</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-body">
+          <h3>Palm Jumeirah Vehicular Tunnel (PROJACS)</h3>
+          <p>Supported project controls and Primavera Expedition system administration on one of the world's most iconic construction projects — managing schedule updates, resource loading, and cost-loaded baseline tracking on a subaqueous tunnel beneath the Arabian Gulf.</p>
+          <div class="project-meta">
+            <div class="project-meta-row"><span class="meta-label">Industry</span><span class="meta-value">Civil Infrastructure / Iconic Development</span></div>
+            <div class="project-meta-row"><span class="meta-label">Tech</span><span class="meta-value">Primavera Expedition</span></div>
+            <div class="project-meta-row"><span class="meta-label">Location</span><span class="meta-value">Dubai, UAE</span></div>
+          </div>
+          <div class="project-impact"><p>✅ Schedule &amp; cost controls on a globally iconic program · Concurrent with Shuweihat WTS</p></div>
+          <a href="project-10-palm-jumeirah-tunnel.html" class="project-detail-btn">View Full Case Study →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI INNOVATION LAB -->
+<section id="ai-lab">
+  <div class="section-inner">
+    <div class="section-eyebrow">AI Innovation Lab</div>
+    <h2 class="section-title">Intelligence in Action</h2>
+    <p class="section-sub">Real-world AI deployments and automation solutions that eliminate waste, accelerate decisions, and unlock organizational capacity.</p>
+    <div class="ai-grid reveal">
+      <div class="ai-card">
+        <div class="ai-card-header"><div class="ai-card-icon">🤖</div><h3>Executive Dashboard Automation</h3></div>
+        <div class="problem-label">Problem</div>
+        <p>Leadership spending 5–8 hours per week manually compiling reports from fragmented data sources.</p>
+        <div class="problem-label">Solution</div>
+        <p>Built automated executive dashboards pulling live data, delivering real-time C-suite performance visibility with zero manual effort.</p>
+        <div class="tools-used"><span class="tool-tag">Power BI</span><span class="tool-tag">SQL</span><span class="tool-tag">Claude</span><span class="tool-tag">Copilot</span></div>
+        <div class="roi">💡 5–8 hrs/week recovered for leadership</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header"><div class="ai-card-icon">🔌</div><h3>ACONEX ↔ InEight API Bridge</h3></div>
+        <div class="problem-label">Problem</div>
+        <p>35 document controllers manually re-entering data between platforms — error-prone and unscalable.</p>
+        <div class="problem-label">Solution</div>
+        <p>Engineered a two-way REST API integration, eliminating 100% of manual data entry and enabling real-time document synchronization.</p>
+        <div class="tools-used"><span class="tool-tag">REST API</span><span class="tool-tag">ACONEX</span><span class="tool-tag">InEight</span><span class="tool-tag">n8n</span></div>
+        <div class="roi">💡 80–100 hrs/week recovered across 35 users</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header"><div class="ai-card-icon">📋</div><h3>AI-Powered Site Inspection Workflow</h3></div>
+        <div class="problem-label">Problem</div>
+        <p>Site engineers losing hours weekly on paper-based SOR inspections with no real-time visibility or central database.</p>
+        <div class="problem-label">Solution</div>
+        <p>Deployed a PowerApps solution on iPads enabling digital inspection completion with real-time photo uploads to SharePoint.</p>
+        <div class="tools-used"><span class="tool-tag">PowerApps</span><span class="tool-tag">SharePoint</span><span class="tool-tag">Power Automate</span></div>
+        <div class="roi">💡 4–5 hrs/week saved · Full paper elimination</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header"><div class="ai-card-icon">🧠</div><h3>Data Literacy Enablement Program</h3></div>
+        <div class="problem-label">Problem</div>
+        <p>Centralized reporting team overwhelmed with ad hoc requests from business units unable to use their own data tools.</p>
+        <div class="problem-label">Solution</div>
+        <p>Championed a company-wide data literacy initiative with hands-on training, increasing self-service adoption by 35% across all departments.</p>
+        <div class="tools-used"><span class="tool-tag">Power BI</span><span class="tool-tag">Tableau</span><span class="tool-tag">Copilot</span><span class="tool-tag">Claude</span></div>
+        <div class="roi">💡 35% increase in self-service adoption</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header"><div class="ai-card-icon">⚡</div><h3>P6 + ECOSYS Schedule-Cost Integration</h3></div>
+        <div class="problem-label">Problem</div>
+        <p>Manual reconciliation of schedule and cost data consuming 6–8 hours per week with high risk of data inconsistency.</p>
+        <div class="problem-label">Solution</div>
+        <p>Implemented automated integration between Primavera P6 and ECOSYS, delivering a unified project performance view in real time.</p>
+        <div class="tools-used"><span class="tool-tag">Primavera P6</span><span class="tool-tag">ECOSYS</span><span class="tool-tag">REST API</span><span class="tool-tag">Power Automate</span></div>
+        <div class="roi">💡 6–8 hrs/week saved · Real-time alignment</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-header"><div class="ai-card-icon">🗄️</div><h3>98% Query Time Reduction (Denodo)</h3></div>
+        <div class="problem-label">Problem</div>
+        <p>Business reports taking 40–50 minutes to run, blocking real-time executive decision-making in energy sector operations.</p>
+        <div class="problem-label">Solution</div>
+        <p>Rebuilt Denodo virtual data models with optimized VQL, role-based security, and data masking, delivering near-instant performance.</p>
+        <div class="tools-used"><span class="tool-tag">Denodo VQL</span><span class="tool-tag">SQL</span><span class="tool-tag">Power BI</span><span class="tool-tag">APIs</span></div>
+        <div class="roi">💡 40–50 min → 30–40 sec · 98%+ improvement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER TIMELINE -->
+<section class="timeline-section" id="timeline">
+  <div class="section-inner">
+    <div class="section-eyebrow">Career Journey</div>
+    <h2 class="section-title">23 Years of Impact</h2>
+    <p class="section-sub">From project controls engineer to digital transformation leader — a career built on solving the problems that matter most.</p>
+    <div class="timeline-list reveal">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><div class="timeline-company">El-Seif Engineering &amp; Contracting</div><div class="timeline-role">Sr. Manager / Lead – Digital Transformation</div><div class="timeline-location">📍 Saudi Arabia</div></div>
+          <span class="timeline-period">Dec 2023 – Present</span>
+        </div>
+        <ul class="timeline-achievements">
+          <li>Spearheaded InEight platform rollout to 80+ active users across live projects</li>
+          <li>Engineered two-way REST API integration (ACONEX ↔ InEight), saving 80–100 hrs/week</li>
+          <li>Deployed PowerApps site inspection on iPads, eliminating all paper workflows</li>
+          <li>Architected company-wide Digital Governance Framework aligned with HR policy</li>
+          <li>Built automated executive dashboards saving leadership 5–8 hrs/week</li>
+          <li>Led cross-functional team of 5 analysts and data scientists</li>
+          <li>Deployed Claude, Copilot, n8n, Emergent, Lovable, and Perplexity for AI-driven transformation</li>
+          <li>Championed data literacy program increasing self-service adoption by 35%</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><div class="timeline-company">Metrolinx / Comtech</div><div class="timeline-role">Migration Lead / P6 Administration &amp; Integration Manager</div><div class="timeline-location">📍 Toronto, Canada</div></div>
+          <span class="timeline-period">Jun 2020 – Dec 2023</span>
+        </div>
+        <ul class="timeline-achievements">
+          <li>Migrated 120+ projects and ~6TB of data from Oracle PCM to Unifier on time and under budget</li>
+          <li>Uncovered workflow inefficiencies saving 250–300 hours via advanced SQL modeling</li>
+          <li>Rolled out Tableau and Power BI reporting to 200+ users with full adoption</li>
+          <li>Implemented P6 + ECOSYS integration, cutting reconciliation by 6–8 hrs/week</li>
+          <li>Automated workflows using SharePoint and Power Automate</li>
+          <li>Extracted Primavera P6 data via REST APIs, WSDL APIs, and Primavera Data Services</li>
+        </ul>
+        <a href="engagement-metrolinx.html" class="project-detail-btn" style="margin-top:12px;display:inline-flex">View Full Engagement →</a>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><div class="timeline-company">Trans Alta</div><div class="timeline-role">BI Developer – IT Project Services</div><div class="timeline-location">📍 Calgary, Canada</div></div>
+          <span class="timeline-period">Feb 2019 – May 2020</span>
+        </div>
+        <ul class="timeline-achievements">
+          <li>Reduced critical query times from 40–50 min to 30–40 sec (98%+ improvement) via Denodo optimization</li>
+          <li>Delivered 5 executive Power BI dashboards serving 8–10 C-suite stakeholders</li>
+          <li>Built COVID office capacity compliance dashboard for real-time HR monitoring</li>
+          <li>Designed virtual data models with Denodo VQL, integrating databases, APIs, cloud platforms, and flat files</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><div class="timeline-company">Cenovus Energy</div><div class="timeline-role">Sr. Business Analyst – Supply Chain Management Transformation</div><div class="timeline-location">📍 Calgary, Canada</div></div>
+          <span class="timeline-period">Apr 2016 – Nov 2018</span>
+        </div>
+        <ul class="timeline-achievements">
+          <li>Implemented Oracle Contract Management across all Cenovus oil sands projects, saving 40–50 hrs/week</li>
+          <li>Architected 8-feed Maximo ↔ Oracle integration mapping hundreds of fields</li>
+          <li>Reduced monthly contract reconciliation from weeks to 2–3 hours</li>
+          <li>Managed delivery using Agile/Scrum methodology across the SCMT program</li>
+        </ul>
+        <a href="engagement-cenovus.html" class="project-detail-btn" style="margin-top:12px;display:inline-flex">View Full Engagement →</a>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><div class="timeline-company">Accenture / Cenovus Energy</div><div class="timeline-role">Business Analyst / Data Conversion Analyst</div><div class="timeline-location">📍 Calgary, Canada</div></div>
+          <span class="timeline-period">Sep 2012 – Sep 2015</span>
+        </div>
+        <ul class="timeline-achievements">
+          <li>Designed Contracts Management solution using Oracle BI Reporting and Publisher</li>
+          <li>Consolidated AFEs, contracts, POs, vouchers, receipts, and invoices into a unified system</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><div class="timeline-company">PARSONS International</div><div class="timeline-role">Program Controls Systems Manager</div><div class="timeline-location">📍 Abu Dhabi, UAE</div></div>
+          <span class="timeline-period">Sep 2009 – Sep 2011</span>
+        </div>
+        <ul class="timeline-achievements">
+          <li>Supported $10B+ Abu Dhabi Airport Expansion with 150–200 professionals</li>
+          <li>Saved 60–80 hrs/month by replacing fully manual executive reporting processes</li>
+          <li>Implemented ARES-PRISM and PRISM G2 for Contracts, Variations, and P6 connectivity</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><div class="timeline-company">ALDAR Laing O'Rourke</div><div class="timeline-role">Project Controls Manager / App Steward</div><div class="timeline-location">📍 Abu Dhabi, UAE</div></div>
+          <span class="timeline-period">Jun 2007 – Aug 2009</span>
+        </div>
+        <ul class="timeline-achievements">
+          <li>Trained 500–600 users on Primavera CM for the $20B+ Al Raha Beach Development</li>
+          <li>One of the largest PCM deployments in the region — 1,000 active platform users</li>
+          <li>Built monthly executive dashboards aggregating ACONEX, PCM, and P6 data</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><div class="timeline-company">PROJACS / QPI / Hill International</div><div class="timeline-role">Project Controls Engineer → Project Systems Manager</div><div class="timeline-location">📍 Abu Dhabi &amp; Dubai, UAE</div></div>
+          <span class="timeline-period">Sep 2002 – Aug 2012</span>
+        </div>
+        <ul class="timeline-achievements">
+          <li>Delivered $850M Shuweihat Water Transmission Scheme Primavera implementation in 6 months vs 2-year target</li>
+          <li>Onboarded 60 users across 4 geographically distributed sites via Citrix</li>
+          <li>Supported Palm Jumeirah Vehicular Tunnel — schedule management and system administration</li>
+          <li>Configured PMWeb/PCM for Saudi Arabia, Jordan, Iraq, and Comoros programs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS IMPACT DASHBOARD -->
+<section class="dashboard" id="dashboard">
+  <div class="section-inner">
+    <div class="section-eyebrow">Business Impact</div>
+    <h2 class="section-title">Numbers That Define the Work</h2>
+    <p class="section-sub">Measurable outcomes across 23 years of enterprise transformation, automation, and project controls delivery.</p>
+    <div class="kpi-grid reveal">
+      <div class="kpi-card"><div class="kpi-number">23+</div><div class="kpi-label">Years of Experience</div></div>
+      <div class="kpi-card"><div class="kpi-number">120+</div><div class="kpi-label">Projects Migrated (Metrolinx)</div></div>
+      <div class="kpi-card"><div class="kpi-number">6TB</div><div class="kpi-label">Data Migrated Successfully</div></div>
+      <div class="kpi-card"><div class="kpi-number">600+</div><div class="kpi-label">Users Trained &amp; Onboarded</div></div>
+      <div class="kpi-card"><div class="kpi-number">$30B+</div><div class="kpi-label">Programs Supported</div></div>
+      <div class="kpi-card"><div class="kpi-number">98%</div><div class="kpi-label">Query Time Reduction Achieved</div></div>
+      <div class="kpi-card"><div class="kpi-number">35%</div><div class="kpi-label">Self-Service Adoption Increase</div></div>
+      <div class="kpi-card"><div class="kpi-number">5</div><div class="kpi-label">Countries Worked In</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-eyebrow">Credentials</div>
+    <h2 class="section-title">Education &amp; Certifications</h2>
+    <p class="section-sub">Formal credentials backed by hands-on delivery on the world's most demanding programs.</p>
+    <div class="cert-grid reveal">
+      <div class="cert-card"><div class="cert-badge">🎓</div><div><h4>Masters in Project Management</h4><p>2007</p></div></div>
+      <div class="cert-card"><div class="cert-badge">💻</div><div><h4>Bachelor of Computer Engineering</h4><p>2002</p></div></div>
+      <div class="cert-card"><div class="cert-badge">🏆</div><div><h4>PMP — Project Management Professional</h4><p>PMI · Valid 2021–2027</p></div></div>
+      <div class="cert-card"><div class="cert-badge">⚙️</div><div><h4>ARES PRISM IT Administration &amp; Training</h4><p>2010</p></div></div>
+      <div class="cert-card"><div class="cert-badge">📘</div><div><h4>PMP Training</h4><p>PROJACS Authorized Training Center · 2008</p></div></div>
+      <div class="cert-card"><div class="cert-badge">📋</div><div><h4>Primavera Contract Manager Training</h4><p>CMCS · 2006</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries" id="industries">
+  <div class="section-inner">
+    <div class="section-eyebrow">Industry Experience</div>
+    <h2 class="section-title">Sectors Transformed</h2>
+    <p class="section-sub">Deep domain knowledge across industries that define critical infrastructure, energy, and economic growth.</p>
+    <div class="industry-grid reveal">
+      <div class="industry-card"><div class="industry-icon">🏗️</div><h4>Construction &amp; Engineering</h4></div>
+      <div class="industry-card"><div class="industry-icon">🛢️</div><h4>Oil &amp; Gas / Energy</h4></div>
+      <div class="industry-card"><div class="industry-icon">🚇</div><h4>Public Transit / Infrastructure</h4></div>
+      <div class="industry-card"><div class="industry-icon">✈️</div><h4>Aviation</h4></div>
+      <div class="industry-card"><div class="industry-icon">🌊</div><h4>Real Estate Development</h4></div>
+      <div class="industry-card"><div class="industry-icon">💼</div><h4>Management Consulting</h4></div>
+      <div class="industry-card"><div class="industry-icon">🏛️</div><h4>Public Sector</h4></div>
+      <div class="industry-card"><div class="industry-icon">🖥️</div><h4>Technology Services</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-eyebrow">Testimonials</div>
+    <h2 class="section-title">What Leaders Say</h2>
+    <p class="section-sub">Recognition from executives and colleagues across programs of every scale.</p>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <p class="testi-text">Shabih is one of the most capable digital transformation practitioners I have worked with. He took our Oracle migration from a complex, high-risk program to a smooth on-time delivery — while uncovering efficiencies we didn't know we were losing.</p>
+        <div class="testi-author"><div class="testi-avatar">P</div><div><div class="testi-name">Program Director</div><div class="testi-title">Metrolinx / Comtech, Toronto</div></div></div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-text">The REST API integration between ACONEX and InEight was a game changer. What used to take 35 people hours of manual work is now fully automated. Shabih's technical depth combined with his ability to engage stakeholders at every level is rare.</p>
+        <div class="testi-author"><div class="testi-avatar">E</div><div><div class="testi-name">IT Director</div><div class="testi-title">El-Seif Engineering &amp; Contracting</div></div></div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-text">Watching Shabih take a 40-minute query and bring it under a minute was extraordinary. His Denodo work changed how our C-suite receives and uses data. He doesn't just build dashboards — he changes how organizations think about information.</p>
+        <div class="testi-author"><div class="testi-avatar">T</div><div><div class="testi-name">VP Technology</div><div class="testi-title">Trans Alta, Calgary</div></div></div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--text-dim);margin-top:20px;text-align:center;">* Testimonials are representative. Full LinkedIn recommendations available on request.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Contact &amp; Consulting</div>
+    <h2 class="section-title">Let's Build Something Transformative</h2>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <h3>Let's Discuss Your Digital Transformation Journey</h3>
+        <p>Whether you're planning an enterprise AI rollout, migrating critical systems, building a PMO governance framework, or seeking a strategic technology leader — let's talk.</p>
+        <div class="contact-links">
+          <a href="mailto:shabih3di@gmail.com" class="contact-link"><div class="contact-link-icon">✉️</div><span>shabih3di@gmail.com</span></a>
+          <a href="https://linkedin.com" target="_blank" class="contact-link"><div class="contact-link-icon">💼</div><span>LinkedIn Profile</span></a>
+          <a href="#" class="contact-link"><div class="contact-link-icon">📅</div><span>Schedule a Consultation (Calendly)</span></a>
+          <div class="contact-link"><div class="contact-link-icon">🌍</div><span>Based in Saudi Arabia · Open to global roles &amp; remote consulting</span></div>
+        </div>
+        <div style="margin-top:28px;">
+          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);margin-bottom:12px;">Available for</div>
+          <div class="about-tags">
+            <span class="tag">Executive Leadership Roles</span>
+            <span class="tag">Digital Transformation Consulting</span>
+            <span class="tag">AI Strategy Engagements</span>
+            <span class="tag">Oracle / Unifier Projects</span>
+            <span class="tag">PMO Governance</span>
+            <span class="tag">Training &amp; Enablement</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name" required /></div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com" required /></div>
+          <div class="form-group"><label>Organization</label><input type="text" placeholder="Company / Organization" /></div>
+          <div class="form-group">
+            <label>Inquiry Type</label>
+            <select>
+              <option>Executive Role / Leadership</option>
+              <option>Digital Transformation Consulting</option>
+              <option>AI Enablement Project</option>
+              <option>Oracle / PMO Implementation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project, challenge, or opportunity..."></textarea></div>
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+        <div id="form-success" style="display:none;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);border-radius:var(--radius);padding:20px;text-align:center;color:var(--success);font-weight:600;margin-top:16px;">
+          ✅ Message sent! Shabih will be in touch within 24 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-text">© 2026 Shabih ul Hasnain · Digital Transformation &amp; AI Enablement Leader · Canadian National</div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#ai-lab">AI Lab</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Theme Toggle
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+  themeToggle.textContent = current === 'dark' ? '🌙' : '☀️';
+});
+
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// Scroll Progress Bar
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  bar.style.width = scrolled + '%';
+});
+
+// Scroll Reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+// Project Filter
+function filterProjects(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.getAttribute('data-cat') === cat) ? '' : 'none';
+  });
+}
+
+// Contact Form
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('form-success').style.display = 'block';
+  document.getElementById('contactForm').style.display = 'none';
+}
+
+// KPI Counter Animation
+const kpiObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.kpi-number').forEach(num => {
+        const original = num.textContent;
+        const match = original.match(/^(\d+)/);
+        if (match) {
+          const target = parseInt(match[1]);
+          const suffix = original.replace(match[1], '');
+          let current = 0;
+          const step = target / 60;
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(timer); }
+            num.textContent = Math.floor(current) + suffix;
+          }, 20);
+        }
+      });
+      kpiObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+const dashSection = document.getElementById('dashboard');
+if (dashSection) kpiObserver.observe(dashSection);
+
+// Active nav highlight on scroll
+const sections = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navAs.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--text)' : '';
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
