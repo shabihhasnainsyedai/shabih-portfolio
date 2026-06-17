@@ -243,10 +243,12 @@ section { padding: clamp(60px, 8vw, 120px) clamp(16px, 5vw, 80px); }
 /* ===== INDUSTRIES ===== */
 .industries { background: var(--surface); }
 .industry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
-.industry-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; transition: all var(--transition); }
-.industry-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.industry-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; transition: all var(--transition); display: block; color: var(--text); text-decoration: none; cursor: pointer; }
+.industry-card:hover { border-color: var(--accent); transform: translateY(-3px); background: var(--surface); }
 .industry-icon { font-size: 32px; margin-bottom: 10px; }
-.industry-card h4 { font-size: 14px; font-weight: 600; }
+.industry-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.industry-link-hint { font-size: 11px; color: var(--text-dim); font-weight: 600; letter-spacing: 0.5px; transition: color var(--transition); }
+.industry-card:hover .industry-link-hint { color: var(--accent); }
 
 /* ===== TESTIMONIALS ===== */
 .testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
@@ -650,7 +652,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
           <a href="project-08-cenovus-integration.html" class="project-detail-btn">View Full Case Study →</a>
         </div>
       </div>
-      <div class="project-card" data-cat="pc">
+      <div class="project-card" data-cat="pc" data-hidden="false">
         <div class="project-img"><div class="project-img-icon">💧</div><span class="project-cat-badge">Project Controls</span></div>
         <div class="project-body">
           <h3>$850M Shuweihat Water Transmission Scheme (PROJACS)</h3>
@@ -909,14 +911,46 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
     <h2 class="section-title">Sectors Transformed</h2>
     <p class="section-sub">Deep domain knowledge across industries that define critical infrastructure, energy, and economic growth.</p>
     <div class="industry-grid reveal">
-      <div class="industry-card"><div class="industry-icon">🏗️</div><h4>Construction &amp; Engineering</h4></div>
-      <div class="industry-card"><div class="industry-icon">🛢️</div><h4>Oil &amp; Gas / Energy</h4></div>
-      <div class="industry-card"><div class="industry-icon">🚇</div><h4>Public Transit / Infrastructure</h4></div>
-      <div class="industry-card"><div class="industry-icon">✈️</div><h4>Aviation</h4></div>
-      <div class="industry-card"><div class="industry-icon">🌊</div><h4>Real Estate Development</h4></div>
-      <div class="industry-card"><div class="industry-icon">💼</div><h4>Management Consulting</h4></div>
-      <div class="industry-card"><div class="industry-icon">🏛️</div><h4>Public Sector</h4></div>
-      <div class="industry-card"><div class="industry-icon">🖥️</div><h4>Technology Services</h4></div>
+      <a href="project-01-ineight.html" class="industry-card" title="View Construction projects">
+        <div class="industry-icon">🏗️</div>
+        <h4>Construction &amp; Engineering</h4>
+        <div class="industry-link-hint">View projects →</div>
+      </a>
+      <a href="project-08-cenovus-integration.html" class="industry-card" title="View Oil & Gas projects">
+        <div class="industry-icon">🛢️</div>
+        <h4>Oil &amp; Gas / Energy</h4>
+        <div class="industry-link-hint">View projects →</div>
+      </a>
+      <a href="project-04-oracle-migration.html" class="industry-card" title="View Transit & Infrastructure projects">
+        <div class="industry-icon">🚇</div>
+        <h4>Public Transit / Infrastructure</h4>
+        <div class="industry-link-hint">View projects →</div>
+      </a>
+      <a href="project-06-abudhabi-airport.html" class="industry-card" title="View Aviation projects">
+        <div class="industry-icon">✈️</div>
+        <h4>Aviation</h4>
+        <div class="industry-link-hint">View projects →</div>
+      </a>
+      <a href="project-07-alraha-beach.html" class="industry-card" title="View Real Estate projects">
+        <div class="industry-icon">🌊</div>
+        <h4>Real Estate Development</h4>
+        <div class="industry-link-hint">View projects →</div>
+      </a>
+      <a href="engagement-cenovus.html" class="industry-card" title="View Consulting engagement">
+        <div class="industry-icon">💼</div>
+        <h4>Management Consulting</h4>
+        <div class="industry-link-hint">View engagement →</div>
+      </a>
+      <a href="engagement-metrolinx.html" class="industry-card" title="View Public Sector projects">
+        <div class="industry-icon">🏛️</div>
+        <h4>Public Sector</h4>
+        <div class="industry-link-hint">View engagement →</div>
+      </a>
+      <a href="project-02-ai-automation.html" class="industry-card" title="View Technology projects">
+        <div class="industry-icon">🖥️</div>
+        <h4>Technology Services</h4>
+        <div class="industry-link-hint">View projects →</div>
+      </a>
     </div>
   </div>
 </section>
