@@ -16,37 +16,37 @@
 
 /* Engagement timeline */
 .eng-timeline{position:relative;padding-left:28px;margin-top:20px}
-.eng-timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent);border-radius:2px}
+.eng-timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--acc),var(--acc2),transparent);border-radius:2px}
 .eng-tl-item{position:relative;margin-bottom:28px}
-.eng-tl-dot{position:absolute;left:-24px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);flex-shrink:0}
-.eng-tl-date{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:4px}
+.eng-tl-dot{position:absolute;left:-24px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--acc);border:3px solid var(--bg);flex-shrink:0}
+.eng-tl-date{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--acc);margin-bottom:4px}
 .eng-tl-title{font-size:15px;font-weight:700;margin-bottom:4px}
-.eng-tl-body{font-size:13.5px;color:var(--text-muted);line-height:1.65}
+.eng-tl-body{font-size:13.5px;color:var(--txm);line-height:1.65}
 
 /* Project highlights grid inside engagement */
 .proj-highlights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
-.ph-card{background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--r);padding:20px;position:relative;overflow:hidden;transition:border-color var(--ease),transform var(--ease)}
-.ph-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.ph-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform var(--ease)}
+.ph-card{background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--r);padding:20px;position:relative;overflow:hidden;transition:border-color var(--ease),transform var(--ease)}
+.ph-card:hover{border-color:var(--acc);transform:translateY(-3px)}
+.ph-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2));transform:scaleX(0);transform-origin:left;transition:transform var(--ease)}
 .ph-card:hover::before{transform:scaleX(1)}
 .ph-icon{font-size:26px;margin-bottom:10px}
 .ph-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
-.ph-card p{font-size:12.5px;color:var(--text-muted);line-height:1.6}
-.ph-impact{margin-top:10px;font-size:12px;color:var(--accent3);font-weight:700}
+.ph-card p{font-size:12.5px;color:var(--txm);line-height:1.6}
+.ph-impact{margin-top:10px;font-size:12px;color:var(--acc3);font-weight:700}
 
 /* Scope band */
 .scope-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
-.scope-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 16px;font-size:13px;font-weight:600;color:var(--text-muted);display:flex;align-items:center;gap:8px;transition:all var(--ease)}
-.scope-item:hover{border-color:var(--accent);color:var(--text)}
-.scope-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.scope-item{background:var(--sur);border:1px solid var(--bdr);border-radius:var(--rs);padding:14px 16px;font-size:13px;font-weight:600;color:var(--txm);display:flex;align-items:center;gap:8px;transition:all var(--ease)}
+.scope-item:hover{border-color:var(--acc);color:var(--tx)}
+.scope-dot{width:8px;height:8px;border-radius:50%;background:var(--acc);flex-shrink:0}
 
 @media(max-width:640px){.proj-highlights{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <nav>
-  <a href="shabih_portfolio.html" class="nav-logo">Shabih<span>.</span></a>
-  <a href="shabih_portfolio.html#timeline" class="nav-back">← Experience</a>
+  <a href="index.html" class="nav-logo">Shabih<span>.</span></a>
+  <a href="index.html#timeline" class="nav-back">← Experience</a>
   <button class="theme-btn" id="themeToggle" title="Toggle theme">☀️</button>
 </nav>
 
@@ -271,15 +271,15 @@
     </div>
     <div class="side-card" style="margin-top:0">
       <div class="side-card-title">Related Project</div>
-      <a href="project-04-oracle-migration.html" style="display:flex;align-items:center;gap:10px;color:var(--text);transition:color var(--ease)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">
+      <a href="project-04-oracle-migration.html" style="display:flex;align-items:center;gap:10px;color:var(--tx);transition:color var(--ease)" onmouseover="this.style.color='var(--acc)'" onmouseout="this.style.color='var(--tx)'">
         <span style="font-size:22px">🔄</span>
         <div>
           <div style="font-size:13px;font-weight:700;margin-bottom:2px">Oracle PCM → Unifier Migration</div>
-          <div style="font-size:11px;color:var(--text-dim)">Full case study →</div>
+          <div style="font-size:11px;color:var(--txd)">Full case study →</div>
         </div>
       </a>
     </div>
-    <a href="shabih_portfolio.html#timeline" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-muted);border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:12px 16px;transition:all var(--ease)" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)'" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)'">← Back to Experience</a>
+    <a href="index.html#timeline" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--txm);border:1px solid var(--bdr2);border-radius:var(--rs);padding:12px 16px;transition:all var(--ease)" onmouseover="this.style.color='var(--acc)';this.style.borderColor='var(--acc)'" onmouseout="this.style.color='var(--txm)';this.style.borderColor='var(--bdr2)'">← Back to Experience</a>
   </aside>
 </div>
 
