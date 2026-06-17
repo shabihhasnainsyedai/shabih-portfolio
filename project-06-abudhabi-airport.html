@@ -5,90 +5,242 @@
 <title>$10B+ Abu Dhabi Airport Expansion Program | Shabih ul Hasnain</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="project-shared.css"/>
+
+<style>
+:root{--bg:#09090f;--sur:#111118;--sur2:#18181f;--bdr:rgba(255,255,255,0.08);--bdr2:rgba(255,255,255,0.14);--acc:#5b8df8;--acc2:#a78bfa;--acc3:#34d399;--tx:#f0f0f5;--txm:#8888a0;--txd:#454558;--fd:'Syne',sans-serif;--fb:'Inter',sans-serif;--r:14px;--rs:8px;--ease:0.3s cubic-bezier(.4,0,.2,1)}
+[data-theme=light]{--bg:#f4f4f9;--sur:#fff;--sur2:#ededf5;--bdr:rgba(0,0,0,.07);--bdr2:rgba(0,0,0,.13);--acc:#3b6ef0;--acc2:#7c3aed;--acc3:#059669;--tx:#0a0a14;--txm:#4a4a68;--txd:#9898b8}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{color:var(--acc);text-decoration:none}
+img{display:block}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,15,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);padding:0 clamp(16px,4vw,56px);display:flex;align-items:center;justify-content:space-between;height:64px}
+[data-theme=light] nav{background:rgba(244,244,249,0.92)}
+.nlogo{font-family:var(--fd);font-size:20px;font-weight:800;color:var(--tx);letter-spacing:-.5px}
+.nlogo span{color:var(--acc)}
+.nback{display:inline-flex;align-items:center;gap:8px;color:var(--txm);font-size:14px;font-weight:500;transition:color var(--ease)}
+.nback:hover{color:var(--acc)}
+.tbtn{background:var(--sur2);border:1px solid var(--bdr);color:var(--txm);border-radius:50%;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all var(--ease)}
+
+/* ── CINEMATIC BANNER ── */
+.banner{position:relative;height:82vh;min-height:560px;overflow:hidden;margin-top:64px}
+.banner-img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04);transition:transform 8s ease}
+.banner:hover .banner-img{transform:scale(1.0)}
+.banner-grad{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,.5) 100%)}
+.banner-inner{position:absolute;inset:0;padding:40px clamp(20px,5vw,72px);display:flex;flex-direction:column;justify-content:space-between}
+.banner-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.b-pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:7px 18px;font-size:11px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;backdrop-filter:blur(8px)}
+.b-client{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--rs);padding:8px 16px;font-size:14px;font-weight:700;color:#fff;backdrop-filter:blur(8px)}
+.banner-bottom{}
+.b-breadcrumb{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.b-breadcrumb a{color:rgba(255,255,255,.45);transition:color var(--ease)}
+.b-breadcrumb a:hover{color:#fff}
+.b-title{font-family:var(--fd);font-size:clamp(28px,4.5vw,62px);font-weight:800;color:#fff;line-height:1.06;letter-spacing:-2px;margin-bottom:16px;max-width:900px}
+.b-sub{font-size:17px;color:rgba(255,255,255,.7);max-width:680px;line-height:1.72}
+
+/* ── KPI STRIP ── */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--sur);border:1px solid var(--bdr2);border-top:none;border-radius:0 0 var(--r) var(--r);overflow:hidden;margin:0 clamp(20px,5vw,72px)}
+.kpi-item{padding:20px 22px;border-right:1px solid var(--bdr)}
+.kpi-item:last-child{border-right:none}
+.kpi-num{font-family:var(--fd);font-size:26px;font-weight:800;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.kpi-label{font-size:11px;color:var(--txd);margin-top:5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+
+/* ── MAIN WRAP ── */
+.wrap{max-width:1200px;margin:0 auto;padding:56px clamp(20px,5vw,72px) 80px;display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}}
+
+/* ── CONTENT ── */
+.sec-eye{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--acc);margin-bottom:10px}
+.sec-eye::before{content:'';width:18px;height:2px;background:var(--acc);border-radius:2px}
+.sec-h{font-family:var(--fd);font-size:clamp(20px,2.5vw,30px);font-weight:800;letter-spacing:-.8px;margin-bottom:16px;line-height:1.15}
+.prose p{color:var(--txm);line-height:1.82;font-size:15.5px;margin-bottom:14px}
+.prose p strong{color:var(--tx)}
+.cblock{margin-bottom:52px}
+
+/* ── IMAGE CARDS ── */
+.img-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.img-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--bdr2);transition:transform var(--ease),border-color var(--ease)}
+.img-card:hover{transform:translateY(-4px);border-color:var(--acc)}
+.img-card-photo{height:190px;overflow:hidden;position:relative}
+.img-card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.img-card:hover .img-card-photo img{transform:scale(1.06)}
+.img-card-body{padding:18px}
+.img-card-eye{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--txd);margin-bottom:6px}
+.img-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.img-card p{font-size:13px;color:var(--txm);line-height:1.65}
+
+/* ── IMPACT CALLOUT ── */
+.impact-bar{background:linear-gradient(135deg,#080f1f,#10102a);border:1px solid rgba(91,141,248,.2);border-radius:var(--r);padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-bottom:48px}
+.impact-big{font-family:var(--fd);font-size:52px;font-weight:800;color:var(--acc);line-height:1;white-space:nowrap}
+.impact-text h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:6px}
+.impact-text p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7}
+
+/* ── STEPS ── */
+.steps{position:relative;padding-left:32px;margin-top:20px}
+.steps::before{content:'';position:absolute;left:9px;top:18px;bottom:18px;width:2px;background:linear-gradient(to bottom,var(--acc),var(--acc2),transparent);border-radius:2px;opacity:.35}
+.step{position:relative;margin-bottom:24px;display:flex;gap:20px;align-items:flex-start}
+.step-dot{width:40px;height:40px;border-radius:50%;background:var(--sur2);border:2px solid var(--bdr2);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:13px;font-weight:800;color:var(--acc);flex-shrink:0;z-index:1;transition:all var(--ease)}
+.step:hover .step-dot{background:var(--acc);color:#fff;border-color:var(--acc)}
+.step-body h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.step-body p{font-size:13.5px;color:var(--txm);line-height:1.65}
+
+/* ── TECH TAGS ── */
+.techs{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.tech{display:inline-flex;align-items:center;gap:7px;background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--rs);padding:8px 14px;font-size:13px;font-weight:600;color:var(--tx);transition:border-color var(--ease)}
+.tech:hover{border-color:var(--acc);color:var(--acc)}
+.tech em{font-style:normal;font-size:15px}
+
+/* ── RESULTS ── */
+.results{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.res{display:flex;gap:14px;align-items:flex-start;background:var(--sur);border:1px solid var(--bdr);border-radius:var(--rs);padding:14px 18px;transition:border-color var(--ease)}
+.res:hover{border-color:var(--acc3)}
+.res-ico{font-size:15px;flex-shrink:0;margin-top:1px}
+.res-tx{font-size:14px;color:var(--txm);line-height:1.65}
+.res-tx strong{color:var(--acc3)}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:84px}
+.scard{background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--r);padding:22px;overflow:hidden}
+.scard-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--txd);margin-bottom:14px}
+.smeta{display:flex;flex-direction:column;gap:12px}
+.smeta-row{display:flex;flex-direction:column;gap:2px}
+.smeta-k{font-size:11px;color:var(--txd);font-weight:600;text-transform:uppercase;letter-spacing:.7px}
+.smeta-v{font-size:14px;font-weight:600;color:var(--tx)}
+.simp{background:linear-gradient(135deg,var(--sur),var(--sur2));border:1px solid var(--bdr2);border-radius:var(--r);padding:22px;position:relative;overflow:hidden}
+.simp::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(91,141,248,.15) 0%,transparent 70%)}
+.simp-num{font-family:var(--fd);font-size:38px;font-weight:800;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.simp-desc{font-size:13px;color:var(--txm);margin-top:6px;line-height:1.5}
+.srel{background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--r);padding:18px}
+.srel-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--txd);margin-bottom:12px}
+.srel-link{display:flex;align-items:center;gap:10px;color:var(--tx);transition:color var(--ease)}
+.srel-link:hover{color:var(--acc)}
+.srel-link .icon{font-size:22px}
+.srel-link h5{font-size:13px;font-weight:700;margin-bottom:2px}
+.srel-link span{font-size:11px;color:var(--txd)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--txm);border:1px solid var(--bdr2);border-radius:var(--rs);padding:12px 16px;transition:all var(--ease)}
+.back-btn:hover{color:var(--acc);border-color:var(--acc)}
+
+/* ── PROJECT NAV ── */
+.pnav{border-top:1px solid var(--bdr);padding:32px clamp(20px,5vw,72px);display:flex;gap:16px;justify-content:space-between;max-width:1344px;margin:0 auto}
+.pnav-btn{display:flex;align-items:center;gap:12px;background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--r);padding:16px 22px;transition:all var(--ease);color:var(--tx);flex:1;max-width:46%}
+.pnav-btn:hover{border-color:var(--acc);transform:translateY(-2px)}
+.pnav-btn.next{justify-content:flex-end;text-align:right}
+.pnav-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--txd);display:block;margin-bottom:3px}
+.pnav-ttl{font-size:13.5px;font-weight:700}
+.pnav-arr{font-size:20px;color:var(--txd);flex-shrink:0}
+
+/* ── CAREER NOTE ── */
+.career-note{background:linear-gradient(135deg,rgba(167,139,250,.08),rgba(91,141,248,.08));border:1px solid rgba(167,139,250,.2);border-radius:var(--r);padding:22px 26px;font-size:14px;color:var(--txm);line-height:1.75;margin-bottom:48px}
+.career-note strong{color:var(--acc2)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:700px){.img-cards{grid-template-columns:1fr}.kpi-strip{grid-template-columns:1fr 1fr;margin:0 16px}.pnav{flex-direction:column}.pnav-btn{max-width:100%}.impact-bar{grid-template-columns:1fr}.impact-big{font-size:38px}}
+</style>
+
 </head>
 <body>
 <nav>
-  <a href="shabih_portfolio.html" class="nav-logo">Shabih<span>.</span></a>
-  <a href="shabih_portfolio.html#projects" class="nav-back">← All Projects</a>
-  <button class="theme-btn" id="themeToggle" title="Toggle theme">☀️</button>
+  <a href="index.html" class="nlogo">Shabih<span>.</span></a>
+  <a href="index.html#projects" class="nback">← All Projects</a>
+  <button class="tbtn" id="TT">☀️</button>
 </nav>
 
-<div class="proj-hero-banner">
-  <div class="banner-bg" style="background:linear-gradient(135deg,#1a1000 0%,#2a0a00 100%)"></div>
-  <div class="banner-gradient" style="background:linear-gradient(to top,rgba(9,9,15,0.92) 0%,rgba(9,9,15,0.45) 55%,transparent 100%)"></div>
-  <div class="banner-noise"></div>
-  <div class="banner-content">
-    <div class="proj-cat-pill" style="background:rgba(251,191,36,0.3)">✈️ Project Controls</div>
-    <h1 class="banner-title">$10B+ Abu Dhabi Airport Expansion Program</h1>
-    <p class="banner-sub">Supported a 150–200 person program management team on the $10B+ Abu Dhabi International Airport Expansion — implementing cost and schedule tracking systems that saved 60–80 hours per month in executive reporting by replacing entirely manual processes on a 10+ year mega-program.</p>
-    <div class="stat-strip"><div class="stat-item"><div class="stat-num counter" data-target="10" data-suffix="B+" data-prefix="$">—</div><div class="stat-unit">Program value</div></div><div class="stat-item"><div class="stat-num counter" data-target="200" data-suffix="–150" data-prefix="">—</div><div class="stat-unit">Program professionals supported</div></div><div class="stat-item"><div class="stat-num counter" data-target="80" data-suffix="–60" data-prefix="">—</div><div class="stat-unit">Hours/month saved in reporting</div></div><div class="stat-item"><div class="stat-num counter" data-target="10" data-suffix="+ yrs" data-prefix="">—</div><div class="stat-unit">Year program duration</div></div></div>
+<div class="banner">
+  <img class="banner-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=90&fit=crop" alt="Abu Dhabi airport terminal building aerial view" loading="eager"/>
+  <div class="banner-grad"></div>
+  <div class="banner-inner">
+    <div class="banner-top">
+      <div class="b-pill">✈ Project Controls · Aviation · $10B+</div>
+      <div class="b-client">PARSONS International</div>
+    </div>
+    <div class="banner-bottom">
+      <div class="b-breadcrumb"><a href="index.html">Home</a> / <a href="index.html#projects">Projects</a> / $10B+ Abu Dhabi Airport Expansion Program</div>
+      <h1 class="b-title">$10B+ Abu Dhabi Airport Expansion Program</h1>
+      <p class="b-sub">Program Controls Systems Manager on one of the Gulf's most complex aviation infrastructure programs — implementing ARES-PRISM and Primavera P6 systems that replaced entirely manual executive reporting processes and saved 60–80 hours per month across a 150–200 person program management team.</p>
+    </div>
   </div>
 </div>
 
-<div class="proj-wrap">
-  <main>
-    <div class="content-block reveal">
-      <div class="sec-label">Overview</div>
-      <div class="prose"><p>The Abu Dhabi International Airport Expansion was one of the largest and most complex infrastructure programs in the Gulf region — a multi-billion dollar, decade-long initiative to dramatically expand the capacity of Abu Dhabi's primary international gateway. PARSONS International served as Program Management Consultant with a team of 150–200 professionals coordinating across dozens of contractors, consultants, and government stakeholders.</p><p>At this scale, cost, schedule, contract, and reporting management had to be systematic, accurate, and capable of generating executive-grade outputs monthly. Prior to the systems implementation, this entire function was manual — consuming enormous effort and introducing unacceptable risk of error on a publicly critical program.</p></div>
-    </div>
+<div class="kpi-strip"><div class="kpi-item"><div class="kpi-num counter" data-t="10" data-s="B+" data-p="$">—</div><div class="kpi-label">Program value</div></div><div class="kpi-item"><div class="kpi-num counter" data-t="200" data-s="–150" data-p="">—</div><div class="kpi-label">Program professionals</div></div><div class="kpi-item"><div class="kpi-num counter" data-t="80" data-s="–60" data-p="">—</div><div class="kpi-label">Hours/month saved</div></div><div class="kpi-item"><div class="kpi-num counter" data-t="10" data-s="+ yrs" data-p="">—</div><div class="kpi-label">Year program duration</div></div></div>
 
-    <div class="content-block reveal">
-      <div class="sec-label">Challenge & Opportunity</div>
-      <div class="ba-grid">
-        <div class="ba-card before"><div class="ba-label">⚠ Challenge</div><p>With 150–200 program professionals, multiple contractor interfaces, and a 10+ year timeline, executive reporting was done entirely by hand. Monthly cost and schedule reports required dozens of hours of data collection, consolidation, and formatting — creating a recurring bottleneck and exposing the program to data accuracy risks at the leadership level.</p></div>
-        <div class="ba-card after"><div class="ba-label">✦ Opportunity</div><p>ARES-PRISM and PRISM G2, combined with Primavera P6, provided a proven enterprise program controls platform capable of automating cost actuals, commitments, contract variations, and baseline tracking — replacing the manual reporting cycle with a system-driven process that could scale with the program.</p></div>
-      </div>
-    </div>
+<div class="wrap">
+<main>
+  <div class="cblock reveal">
+    <div class="sec-eye">Overview</div>
+    <div class="prose"><p>The Abu Dhabi International Airport Expansion was one of the largest and most complex infrastructure programs in the Gulf region — a multi-billion dollar, decade-long initiative to dramatically expand the capacity of Abu Dhabi's primary international gateway. PARSONS International served as Program Management Consultant with a team of 150–200 professionals coordinating across dozens of contractors, consultants, and government stakeholders.</p><p>Prior to the systems implementation, cost, schedule, contract, and executive reporting was done entirely manually — <strong>consuming enormous effort and introducing unacceptable risk of error on a publicly critical program</strong>. The mandate was to replace this with a robust, scalable program controls infrastructure that could serve the full 10+ year program lifecycle.</p></div>
+  </div>
 
-    <div class="content-block">
-      <div class="sec-label">Solution Delivery</div>
-      <div class="steps"><div class="step reveal"><div class="step-dot">1</div><div class="step-body"><h4>ARES-PRISM & PRISM G2 Implementation</h4><p>Implemented and fully configured ARES-PRISM and PRISM G2 for the complete program controls function — covering Contracts Management, Variations (change orders), commitments tracking, and Primavera P6 schedule integration.</p></div></div><div class="step reveal"><div class="step-dot">2</div><div class="step-body"><h4>Monthly Actuals & Commitment Import Cycle</h4><p>Configured and managed the monthly cycle of actual cost imports, commitment updates, and baseline estimate tracking within PRISM — providing the program team with an always-current view of cost performance against the approved budget.</p></div></div><div class="step reveal"><div class="step-dot">3</div><div class="step-body"><h4>Primavera P6 Schedule Integration</h4><p>Maintained the integration between PRISM and Primavera P6 to keep schedule and cost data aligned — enabling earned value analysis and a unified view of program performance across both time and cost dimensions.</p></div></div><div class="step reveal"><div class="step-dot">4</div><div class="step-body"><h4>Executive Reporting Automation</h4><p>Replaced the manual monthly executive reporting process with system-generated PRISM reports and dashboards — eliminating 60–80 hours per month of manual data collection and delivering more accurate, consistent outputs to leadership.</p></div></div><div class="step reveal"><div class="step-dot">5</div><div class="step-body"><h4>Contracts & Variations Management</h4><p>Configured the Contracts and Variations modules to track all contract awards, change events, and variation orders across the program's multiple contractor interfaces — full visibility of contractual commitments and budget impact.</p></div></div></div>
+  <div class="cblock reveal">
+    <div class="sec-eye">Challenge & Solution</div>
+    <div class="img-cards">
+      <div class="img-card">
+<div class="img-card-photo"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=85&fit=crop" alt="Large infrastructure construction site" loading="lazy"/></div>
+<div class="img-card-body"><div class="img-card-eye">⚠ Challenge</div><h4>Manual reporting on a $10B program</h4><p>150–200 program professionals compiling monthly executive reports entirely by hand — dozens of hours lost every month on a decade-long, publicly critical aviation program with zero tolerance for data inaccuracies.</p></div>
+</div>
+      <div class="img-card">
+<div class="img-card-photo"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=85&fit=crop" alt="Aviation program management" loading="lazy"/></div>
+<div class="img-card-body"><div class="img-card-eye">✦ Solution</div><h4>ARES-PRISM + P6 integration</h4><p>Full implementation of ARES-PRISM and PRISM G2 for contracts, variations, commitments, and baseline tracking — integrated with Primavera P6 for real-time schedule-cost alignment and automated executive reporting.</p></div>
+</div>
     </div>
+  </div>
 
-    <div class="content-block reveal">
-      <div class="sec-label">Technology Stack</div>
-      <div class="tech-wrap"><span class="tech-tag"><em>💼</em>ARES-PRISM</span><span class="tech-tag"><em>📋</em>PRISM G2</span><span class="tech-tag"><em>📅</em>Primavera P6</span><span class="tech-tag"><em>📄</em>Contracts & Variations</span><span class="tech-tag"><em>📊</em>Executive Reporting</span><span class="tech-tag"><em>💰</em>Cost & Commitment Tracking</span><span class="tech-tag"><em>📈</em>Earned Value Management</span></div>
-    </div>
+  <div class="impact-bar reveal">
+    <div class="impact-big">$10B+</div>
+    <div class="impact-text"><h3>Program value supported with automated controls</h3><p>The program controls infrastructure implemented supported the full 10+ year lifecycle of one of the Gulf's most significant aviation megaprograms — delivering 60–80 hours per month of reporting savings from day one.</p></div>
+  </div>
 
-    <div class="content-block reveal">
-      <div class="sec-label">Key Outcomes</div>
-      <div class="results"><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>60–80 hours per month recovered</strong> — monthly executive report preparation went from a fully manual multi-day process to a system-generated output.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Full cost & schedule integration</strong> — PRISM and P6 integration gave leadership a unified performance view across both dimensions simultaneously.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Scalable program controls infrastructure</strong> — the PRISM implementation supported the full 10+ year program lifecycle without platform replacement.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Contractual commitment visibility</strong> — all contracts, variations, and budget impacts tracked in real time across all contractor interfaces on a $10B+ program.</div></div></div>
-    </div>
+  <div class="cblock">
+    <div class="sec-eye">Solution Delivery</div>
+    <div class="steps"><div class="step reveal"><div class="step-dot">1</div><div class="step-body"><h4>ARES-PRISM & PRISM G2 Implementation</h4><p>Implemented and fully configured ARES-PRISM and PRISM G2 for the complete program controls function — Contracts Management, Variations, commitments tracking, and Primavera P6 integration.</p></div></div><div class="step reveal"><div class="step-dot">2</div><div class="step-body"><h4>Monthly Actuals & Commitment Import Cycle</h4><p>Configured and managed the monthly cycle of actual cost imports, commitment updates, and baseline estimate tracking — always-current view of cost performance against the approved budget.</p></div></div><div class="step reveal"><div class="step-dot">3</div><div class="step-body"><h4>Primavera P6 Schedule Integration</h4><p>Maintained the PRISM-P6 integration to keep schedule and cost data aligned — enabling earned value analysis and a unified view of program performance across both dimensions.</p></div></div><div class="step reveal"><div class="step-dot">4</div><div class="step-body"><h4>Executive Reporting Automation</h4><p>Replaced the manual monthly executive reporting process with system-generated PRISM reports — eliminating 60–80 hours per month of manual data collection and delivering more accurate outputs.</p></div></div><div class="step reveal"><div class="step-dot">5</div><div class="step-body"><h4>Contracts & Variations Management</h4><p>Configured Contracts and Variations modules to track all contract awards, change events, and variation orders across all contractor interfaces — full visibility of contractual budget impact.</p></div></div></div>
+  </div>
 
-    
-  </main>
+  <div class="cblock reveal">
+    <div class="sec-eye">Technology Stack</div>
+    <div class="techs"><span class="tech"><em>💼</em>ARES-PRISM</span><span class="tech"><em>📋</em>PRISM G2</span><span class="tech"><em>📅</em>Primavera P6</span><span class="tech"><em>📄</em>Contracts & Variations</span><span class="tech"><em>📊</em>Executive Reporting</span><span class="tech"><em>💰</em>EVM</span><span class="tech"><em>📈</em>Cost Forecasting</span></div>
+  </div>
 
-  <aside class="sidebar">
-    <div class="side-card">
-      <div class="side-card-title">Project Details</div>
-      <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">PARSONS International</span></div><div class="meta-row"><span class="meta-key">Program Value</span><span class="meta-val">$10B+</span></div><div class="meta-row"><span class="meta-key">Industry</span><span class="meta-val">Aviation / Infrastructure</span></div><div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">Abu Dhabi, UAE</span></div><div class="meta-row"><span class="meta-key">Period</span><span class="meta-val">Sep 2009 – Sep 2011</span></div><div class="meta-row"><span class="meta-key">Role</span><span class="meta-val">Program Controls Systems Manager</span></div>
-    </div>
-    <div class="impact-highlight">
-      <div class="sec-label" style="margin-bottom:8px">Top Impact</div>
-      <div class="impact-num">$10B+</div>
-      <div class="impact-desc">Program value supported with automated controls systems</div>
-    </div>
-    <a href="shabih_portfolio.html#projects" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-muted);border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:12px 16px;transition:all var(--ease)" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)'" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)'">← Back to All Projects</a>
-  </aside>
+  <div class="cblock reveal">
+    <div class="sec-eye">Key Outcomes</div>
+    <div class="results"><div class="res"><div class="res-ico">✅</div><div class="res-tx"><strong>60–80 hours per month recovered</strong> — monthly executive report preparation replaced by automated system-generated outputs.</div></div><div class="res"><div class="res-ico">✅</div><div class="res-tx"><strong>Full cost & schedule integration</strong> — PRISM and P6 integration gave leadership a unified performance view across both dimensions.</div></div><div class="res"><div class="res-ico">✅</div><div class="res-tx"><strong>Scalable infrastructure for 10+ years</strong> — the PRISM implementation supported the full program lifecycle without platform replacement.</div></div><div class="res"><div class="res-ico">✅</div><div class="res-tx"><strong>Contractual commitment visibility</strong> — all contracts, variations, and budget impacts tracked in real time across all contractor interfaces.</div></div></div>
+  </div>
+
+  
+</main>
+
+<aside class="sidebar">
+  <div class="scard">
+    <div class="scard-title">Project Details</div>
+    <div class="smeta"><div class="smeta-row"><span class="smeta-k">Client</span><span class="smeta-v">PARSONS International</span></div><div class="smeta-row"><span class="smeta-k">Program Value</span><span class="smeta-v">$10B+</span></div><div class="smeta-row"><span class="smeta-k">Industry</span><span class="smeta-v">Aviation / Infrastructure</span></div><div class="smeta-row"><span class="smeta-k">Location</span><span class="smeta-v">Abu Dhabi, UAE</span></div><div class="smeta-row"><span class="smeta-k">Period</span><span class="smeta-v">Sep 2009 – Sep 2011</span></div><div class="smeta-row"><span class="smeta-k">Role</span><span class="smeta-v">Program Controls Systems Manager</span></div></div>
+  </div>
+  <div class="simp">
+    <div class="sec-eye" style="margin-bottom:8px">Top Impact</div>
+    <div class="simp-num">$10B+</div>
+    <div class="simp-desc">The program value supported — one of the Gulf region's most complex aviation megaprograms</div>
+  </div>
+  
+  <a href="index.html#projects" class="back-btn">← Back to All Projects</a>
+</aside>
 </div>
 
-<div class="proj-nav-bar"><a href="project-05-denodo-bi.html" class="pnav-btn prev"><span class="pnav-arrow">←</span><div><span class="pnav-label">Previous</span><span class="pnav-title">Denodo 98% Query Optimisation</span></div></a><a href="project-07-alraha-beach.html" class="pnav-btn next"><div><span class="pnav-label">Next</span><span class="pnav-title">$20B Al Raha Beach Development</span></div><span class="pnav-arrow">→</span></a></div>
+<div class="pnav"><a href="project-05-denodo-bi.html" class="pnav-btn"><span class="pnav-arr">←</span><div><span class="pnav-lbl">Previous</span><span class="pnav-ttl">Denodo 98% Query Optimisation</span></div></a><a href="project-07-alraha-beach.html" class="pnav-btn next"><div><span class="pnav-lbl">Next</span><span class="pnav-ttl">$20B Al Raha Beach Development</span></div><span class="pnav-arr">→</span></a></div>
 
 <script>
-const T=document.getElementById('themeToggle');
+const T=document.getElementById('TT');
 T.addEventListener('click',()=>{const c=document.documentElement.getAttribute('data-theme');document.documentElement.setAttribute('data-theme',c==='dark'?'light':'dark');T.textContent=c==='dark'?'🌙':'☀️';});
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.1});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 document.querySelectorAll('.counter').forEach(el=>{
-  const target=parseFloat(el.dataset.target);const suffix=el.dataset.suffix||'';const prefix=el.dataset.prefix||'';
-  const isFloat=el.dataset.float==='1';
-  const cobs=new IntersectionObserver(([entry])=>{
-    if(!entry.isIntersecting)return;cobs.unobserve(el);
-    let cur=0;const step=target/60;
-    const t=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(t);}
-    el.textContent=prefix+(isFloat?cur.toFixed(1):Math.floor(cur))+suffix;},20);
-  },{threshold:0.5});
-  cobs.observe(el);
+  const tgt=parseFloat(el.dataset.t),sfx=el.dataset.s||'',pfx=el.dataset.p||'';
+  const co=new IntersectionObserver(([en])=>{
+    if(!en.isIntersecting)return;co.unobserve(el);
+    let c=0;const step=tgt/55;
+    const tm=setInterval(()=>{c+=step;if(c>=tgt){c=tgt;clearInterval(tm);}
+    el.textContent=pfx+Math.floor(c)+sfx;},18);
+  },{threshold:.5});co.observe(el);
 });
 </script>
 

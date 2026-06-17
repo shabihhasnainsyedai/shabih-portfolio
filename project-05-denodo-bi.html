@@ -5,90 +5,242 @@
 <title>98% Query Time Reduction — Denodo BI (Trans Alta) | Shabih ul Hasnain</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="project-shared.css"/>
+
+<style>
+:root{--bg:#09090f;--sur:#111118;--sur2:#18181f;--bdr:rgba(255,255,255,0.08);--bdr2:rgba(255,255,255,0.14);--acc:#5b8df8;--acc2:#a78bfa;--acc3:#34d399;--tx:#f0f0f5;--txm:#8888a0;--txd:#454558;--fd:'Syne',sans-serif;--fb:'Inter',sans-serif;--r:14px;--rs:8px;--ease:0.3s cubic-bezier(.4,0,.2,1)}
+[data-theme=light]{--bg:#f4f4f9;--sur:#fff;--sur2:#ededf5;--bdr:rgba(0,0,0,.07);--bdr2:rgba(0,0,0,.13);--acc:#3b6ef0;--acc2:#7c3aed;--acc3:#059669;--tx:#0a0a14;--txm:#4a4a68;--txd:#9898b8}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{color:var(--acc);text-decoration:none}
+img{display:block}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,15,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);padding:0 clamp(16px,4vw,56px);display:flex;align-items:center;justify-content:space-between;height:64px}
+[data-theme=light] nav{background:rgba(244,244,249,0.92)}
+.nlogo{font-family:var(--fd);font-size:20px;font-weight:800;color:var(--tx);letter-spacing:-.5px}
+.nlogo span{color:var(--acc)}
+.nback{display:inline-flex;align-items:center;gap:8px;color:var(--txm);font-size:14px;font-weight:500;transition:color var(--ease)}
+.nback:hover{color:var(--acc)}
+.tbtn{background:var(--sur2);border:1px solid var(--bdr);color:var(--txm);border-radius:50%;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all var(--ease)}
+
+/* ── CINEMATIC BANNER ── */
+.banner{position:relative;height:82vh;min-height:560px;overflow:hidden;margin-top:64px}
+.banner-img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.04);transition:transform 8s ease}
+.banner:hover .banner-img{transform:scale(1.0)}
+.banner-grad{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,.5) 100%)}
+.banner-inner{position:absolute;inset:0;padding:40px clamp(20px,5vw,72px);display:flex;flex-direction:column;justify-content:space-between}
+.banner-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.b-pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:7px 18px;font-size:11px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;backdrop-filter:blur(8px)}
+.b-client{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--rs);padding:8px 16px;font-size:14px;font-weight:700;color:#fff;backdrop-filter:blur(8px)}
+.banner-bottom{}
+.b-breadcrumb{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.b-breadcrumb a{color:rgba(255,255,255,.45);transition:color var(--ease)}
+.b-breadcrumb a:hover{color:#fff}
+.b-title{font-family:var(--fd);font-size:clamp(28px,4.5vw,62px);font-weight:800;color:#fff;line-height:1.06;letter-spacing:-2px;margin-bottom:16px;max-width:900px}
+.b-sub{font-size:17px;color:rgba(255,255,255,.7);max-width:680px;line-height:1.72}
+
+/* ── KPI STRIP ── */
+.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--sur);border:1px solid var(--bdr2);border-top:none;border-radius:0 0 var(--r) var(--r);overflow:hidden;margin:0 clamp(20px,5vw,72px)}
+.kpi-item{padding:20px 22px;border-right:1px solid var(--bdr)}
+.kpi-item:last-child{border-right:none}
+.kpi-num{font-family:var(--fd);font-size:26px;font-weight:800;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.kpi-label{font-size:11px;color:var(--txd);margin-top:5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+
+/* ── MAIN WRAP ── */
+.wrap{max-width:1200px;margin:0 auto;padding:56px clamp(20px,5vw,72px) 80px;display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}}
+
+/* ── CONTENT ── */
+.sec-eye{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--acc);margin-bottom:10px}
+.sec-eye::before{content:'';width:18px;height:2px;background:var(--acc);border-radius:2px}
+.sec-h{font-family:var(--fd);font-size:clamp(20px,2.5vw,30px);font-weight:800;letter-spacing:-.8px;margin-bottom:16px;line-height:1.15}
+.prose p{color:var(--txm);line-height:1.82;font-size:15.5px;margin-bottom:14px}
+.prose p strong{color:var(--tx)}
+.cblock{margin-bottom:52px}
+
+/* ── IMAGE CARDS ── */
+.img-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.img-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--bdr2);transition:transform var(--ease),border-color var(--ease)}
+.img-card:hover{transform:translateY(-4px);border-color:var(--acc)}
+.img-card-photo{height:190px;overflow:hidden;position:relative}
+.img-card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.img-card:hover .img-card-photo img{transform:scale(1.06)}
+.img-card-body{padding:18px}
+.img-card-eye{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--txd);margin-bottom:6px}
+.img-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.img-card p{font-size:13px;color:var(--txm);line-height:1.65}
+
+/* ── IMPACT CALLOUT ── */
+.impact-bar{background:linear-gradient(135deg,#080f1f,#10102a);border:1px solid rgba(91,141,248,.2);border-radius:var(--r);padding:28px 32px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-bottom:48px}
+.impact-big{font-family:var(--fd);font-size:52px;font-weight:800;color:var(--acc);line-height:1;white-space:nowrap}
+.impact-text h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:6px}
+.impact-text p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7}
+
+/* ── STEPS ── */
+.steps{position:relative;padding-left:32px;margin-top:20px}
+.steps::before{content:'';position:absolute;left:9px;top:18px;bottom:18px;width:2px;background:linear-gradient(to bottom,var(--acc),var(--acc2),transparent);border-radius:2px;opacity:.35}
+.step{position:relative;margin-bottom:24px;display:flex;gap:20px;align-items:flex-start}
+.step-dot{width:40px;height:40px;border-radius:50%;background:var(--sur2);border:2px solid var(--bdr2);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:13px;font-weight:800;color:var(--acc);flex-shrink:0;z-index:1;transition:all var(--ease)}
+.step:hover .step-dot{background:var(--acc);color:#fff;border-color:var(--acc)}
+.step-body h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.step-body p{font-size:13.5px;color:var(--txm);line-height:1.65}
+
+/* ── TECH TAGS ── */
+.techs{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.tech{display:inline-flex;align-items:center;gap:7px;background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--rs);padding:8px 14px;font-size:13px;font-weight:600;color:var(--tx);transition:border-color var(--ease)}
+.tech:hover{border-color:var(--acc);color:var(--acc)}
+.tech em{font-style:normal;font-size:15px}
+
+/* ── RESULTS ── */
+.results{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.res{display:flex;gap:14px;align-items:flex-start;background:var(--sur);border:1px solid var(--bdr);border-radius:var(--rs);padding:14px 18px;transition:border-color var(--ease)}
+.res:hover{border-color:var(--acc3)}
+.res-ico{font-size:15px;flex-shrink:0;margin-top:1px}
+.res-tx{font-size:14px;color:var(--txm);line-height:1.65}
+.res-tx strong{color:var(--acc3)}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:84px}
+.scard{background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--r);padding:22px;overflow:hidden}
+.scard-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--txd);margin-bottom:14px}
+.smeta{display:flex;flex-direction:column;gap:12px}
+.smeta-row{display:flex;flex-direction:column;gap:2px}
+.smeta-k{font-size:11px;color:var(--txd);font-weight:600;text-transform:uppercase;letter-spacing:.7px}
+.smeta-v{font-size:14px;font-weight:600;color:var(--tx)}
+.simp{background:linear-gradient(135deg,var(--sur),var(--sur2));border:1px solid var(--bdr2);border-radius:var(--r);padding:22px;position:relative;overflow:hidden}
+.simp::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(91,141,248,.15) 0%,transparent 70%)}
+.simp-num{font-family:var(--fd);font-size:38px;font-weight:800;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.simp-desc{font-size:13px;color:var(--txm);margin-top:6px;line-height:1.5}
+.srel{background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--r);padding:18px}
+.srel-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--txd);margin-bottom:12px}
+.srel-link{display:flex;align-items:center;gap:10px;color:var(--tx);transition:color var(--ease)}
+.srel-link:hover{color:var(--acc)}
+.srel-link .icon{font-size:22px}
+.srel-link h5{font-size:13px;font-weight:700;margin-bottom:2px}
+.srel-link span{font-size:11px;color:var(--txd)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--txm);border:1px solid var(--bdr2);border-radius:var(--rs);padding:12px 16px;transition:all var(--ease)}
+.back-btn:hover{color:var(--acc);border-color:var(--acc)}
+
+/* ── PROJECT NAV ── */
+.pnav{border-top:1px solid var(--bdr);padding:32px clamp(20px,5vw,72px);display:flex;gap:16px;justify-content:space-between;max-width:1344px;margin:0 auto}
+.pnav-btn{display:flex;align-items:center;gap:12px;background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--r);padding:16px 22px;transition:all var(--ease);color:var(--tx);flex:1;max-width:46%}
+.pnav-btn:hover{border-color:var(--acc);transform:translateY(-2px)}
+.pnav-btn.next{justify-content:flex-end;text-align:right}
+.pnav-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--txd);display:block;margin-bottom:3px}
+.pnav-ttl{font-size:13.5px;font-weight:700}
+.pnav-arr{font-size:20px;color:var(--txd);flex-shrink:0}
+
+/* ── CAREER NOTE ── */
+.career-note{background:linear-gradient(135deg,rgba(167,139,250,.08),rgba(91,141,248,.08));border:1px solid rgba(167,139,250,.2);border-radius:var(--r);padding:22px 26px;font-size:14px;color:var(--txm);line-height:1.75;margin-bottom:48px}
+.career-note strong{color:var(--acc2)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:700px){.img-cards{grid-template-columns:1fr}.kpi-strip{grid-template-columns:1fr 1fr;margin:0 16px}.pnav{flex-direction:column}.pnav-btn{max-width:100%}.impact-bar{grid-template-columns:1fr}.impact-big{font-size:38px}}
+</style>
+
 </head>
 <body>
 <nav>
-  <a href="shabih_portfolio.html" class="nav-logo">Shabih<span>.</span></a>
-  <a href="shabih_portfolio.html#projects" class="nav-back">← All Projects</a>
-  <button class="theme-btn" id="themeToggle" title="Toggle theme">☀️</button>
+  <a href="index.html" class="nlogo">Shabih<span>.</span></a>
+  <a href="index.html#projects" class="nback">← All Projects</a>
+  <button class="tbtn" id="TT">☀️</button>
 </nav>
 
-<div class="proj-hero-banner">
-  <div class="banner-bg" style="background:linear-gradient(135deg,#0a1f30 0%,#0f1a28 100%)"></div>
-  <div class="banner-gradient" style="background:linear-gradient(to top,rgba(9,9,15,0.92) 0%,rgba(9,9,15,0.45) 55%,transparent 100%)"></div>
-  <div class="banner-noise"></div>
-  <div class="banner-content">
-    <div class="proj-cat-pill" style="background:rgba(52,211,153,0.3)">📊 Business Intelligence</div>
-    <h1 class="banner-title">98% Query Time Reduction — Denodo BI (Trans Alta)</h1>
-    <p class="banner-sub">Transformed Trans Alta's BI infrastructure by rebuilding Denodo virtual data models and VQL — cutting critical query times from 40–50 minutes to 30–40 seconds, enabling near-real-time executive decision-making across Canada's energy sector.</p>
-    <div class="stat-strip"><div class="stat-item"><div class="stat-num counter" data-target="98" data-suffix="%" data-prefix="">—</div><div class="stat-unit">Query time reduction</div></div><div class="stat-item"><div class="stat-num counter" data-target="40" data-suffix="–50 min" data-prefix="">—</div><div class="stat-unit">Minutes → seconds (was</div></div><div class="stat-item"><div class="stat-num counter" data-target="5" data-suffix="" data-prefix="">—</div><div class="stat-unit">Executive dashboards delivered</div></div><div class="stat-item"><div class="stat-num counter" data-target="10" data-suffix="–8" data-prefix="">—</div><div class="stat-unit">C-suite stakeholders served</div></div></div>
+<div class="banner">
+  <img class="banner-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600&q=90&fit=crop" alt="Energy power plant infrastructure" loading="eager"/>
+  <div class="banner-grad"></div>
+  <div class="banner-inner">
+    <div class="banner-top">
+      <div class="b-pill">📊 Business Intelligence · Energy</div>
+      <div class="b-client">Trans Alta Corporation</div>
+    </div>
+    <div class="banner-bottom">
+      <div class="b-breadcrumb"><a href="index.html">Home</a> / <a href="index.html#projects">Projects</a> / 98% Query Time Reduction — Denodo BI (Trans Alta)</div>
+      <h1 class="b-title">98% Query Time Reduction — Denodo BI (Trans Alta)</h1>
+      <p class="b-sub">Transformed Trans Alta's BI infrastructure by rebuilding Denodo virtual data models and VQL — cutting critical query execution from 40–50 minutes to 30–40 seconds and enabling near-real-time C-suite decision-making across Canada's energy sector.</p>
+    </div>
   </div>
 </div>
 
-<div class="proj-wrap">
-  <main>
-    <div class="content-block reveal">
-      <div class="sec-label">Overview</div>
-      <div class="prose"><p>Trans Alta is one of Canada's largest publicly traded power generators, operating wind, solar, hydro, and natural gas facilities across North America. Their C-suite depended on BI reporting to make critical operational and strategic decisions — but the BI infrastructure had become a serious bottleneck.</p><p>Critical reports were taking 40–50 minutes to execute. By the time data was available, decisions had already been made on outdated information. The root cause: unoptimised Denodo virtual data models, inefficient VQL queries, and integration patterns creating unnecessary computational overhead across multiple source systems.</p></div>
-    </div>
+<div class="kpi-strip"><div class="kpi-item"><div class="kpi-num counter" data-t="98" data-s="%" data-p="">—</div><div class="kpi-label">Query time reduction</div></div><div class="kpi-item"><div class="kpi-num counter" data-t="40" data-s="–50 min" data-p="">—</div><div class="kpi-label">Minutes (was</div></div><div class="kpi-item"><div class="kpi-num counter" data-t="5" data-s="" data-p="">—</div><div class="kpi-label">Executive dashboards delivered</div></div><div class="kpi-item"><div class="kpi-num counter" data-t="10" data-s="–8" data-p="">—</div><div class="kpi-label">C-suite stakeholders served</div></div></div>
 
-    <div class="content-block reveal">
-      <div class="sec-label">Challenge & Opportunity</div>
-      <div class="ba-grid">
-        <div class="ba-card before"><div class="ba-label">⚠ Challenge</div><p>Denodo virtual data models had been built iteratively without performance optimisation as a priority. Queries pulled from multiple sources — databases, APIs, cloud platforms, flat files — through inefficient joins, missing caching, and unbounded scopes that forced full data scans on every execution. C-suite confidence in BI as a decision tool was eroding.</p></div>
-        <div class="ba-card after"><div class="ba-label">✦ Opportunity</div><p>A systematic rebuild of Denodo VQL models — with proper caching, push-down optimisation, restructured joins, and role-based security — could deliver near-real-time performance without any new infrastructure investment. The entire gain was achievable through engineering discipline alone.</p></div>
-      </div>
-    </div>
+<div class="wrap">
+<main>
+  <div class="cblock reveal">
+    <div class="sec-eye">Overview</div>
+    <div class="prose"><p>Trans Alta is one of Canada's largest publicly traded power generators, operating wind, solar, hydro, and natural gas facilities across North America. Their C-suite depended on BI reporting for critical operational and strategic decisions — but the BI infrastructure had become a serious bottleneck.</p><p>Critical reports were taking 40–50 minutes to execute. By the time data was available, decisions had already been made on outdated information. The root cause: <strong>unoptimised Denodo virtual data models, inefficient VQL, and integration patterns creating unnecessary computational overhead</strong> across multiple source systems.</p></div>
+  </div>
 
-    <div class="content-block">
-      <div class="sec-label">Solution Delivery</div>
-      <div class="steps"><div class="step reveal"><div class="step-dot">1</div><div class="step-body"><h4>Query Performance Diagnostic</h4><p>Conducted a full audit of existing Denodo base views, derived views, and join strategies to identify the specific patterns causing 40–50 minute execution times. Profiled each bottleneck individually before touching any code.</p></div></div><div class="step reveal"><div class="step-dot">2</div><div class="step-body"><h4>Denodo VQL Model Reconstruction</h4><p>Rebuilt virtual data models from the ground up — implementing push-down query optimisation, eliminating redundant derived views, and restructuring joins to minimise data movement across the virtualisation layer.</p></div></div><div class="step reveal"><div class="step-dot">3</div><div class="step-body"><h4>Caching Configuration & Refresh Strategy</h4><p>Implemented intelligent caching at the Denodo layer for frequently accessed datasets — configuring full and partial cache modes with scheduled refresh cycles that balanced freshness against performance.</p></div></div><div class="step reveal"><div class="step-dot">4</div><div class="step-body"><h4>Role-Based Security & Data Masking</h4><p>Designed and implemented role-based security policies and data masking within Denodo — ensuring sensitive operational and financial data was accessible only to authorised users, with appropriate masking for lower-clearance roles.</p></div></div><div class="step reveal"><div class="step-dot">5</div><div class="step-body"><h4>5 Executive Power BI Dashboards</h4><p>Built 5 executive-level Power BI dashboards connected to the rebuilt Denodo layer — transforming complex multi-source energy datasets into clear narratives for 8–10 C-suite stakeholders.</p></div></div><div class="step reveal"><div class="step-dot">6</div><div class="step-body"><h4>COVID Capacity Compliance Dashboard</h4><p>When COVID-19 required office capacity management, delivered a real-time Power BI monitoring dashboard in 2 months — enabling HR to track employee attendance and enforce safe occupancy limits across all Trans Alta facilities.</p></div></div></div>
+  <div class="cblock reveal">
+    <div class="sec-eye">Challenge & Solution</div>
+    <div class="img-cards">
+      <div class="img-card">
+<div class="img-card-photo"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85&fit=crop" alt="Business intelligence dashboard" loading="lazy"/></div>
+<div class="img-card-body"><div class="img-card-eye">⚠ Challenge</div><h4>40–50 minute query execution times</h4><p>Critical business reports taking 40–50 minutes to run — making real-time C-suite decision-making impossible. Denodo models built iteratively without performance optimisation, pulling from databases, APIs, cloud, and flat files through inefficient joins and missing caching.</p></div>
+</div>
+      <div class="img-card">
+<div class="img-card-photo"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=85&fit=crop" alt="Data analytics pipeline" loading="lazy"/></div>
+<div class="img-card-body"><div class="img-card-eye">✦ Solution</div><h4>Denodo VQL rebuild — zero new infrastructure</h4><p>Complete reconstruction of Denodo virtual data models with push-down optimisation, intelligent caching, restructured joins, and role-based security. All performance gains achieved through engineering discipline alone — no new infrastructure required.</p></div>
+</div>
     </div>
+  </div>
 
-    <div class="content-block reveal">
-      <div class="sec-label">Technology Stack</div>
-      <div class="tech-wrap"><span class="tech-tag"><em>🗄️</em>Denodo Platform (VQL)</span><span class="tech-tag"><em>📊</em>Power BI</span><span class="tech-tag"><em>💾</em>SQL</span><span class="tech-tag"><em>🔌</em>REST APIs</span><span class="tech-tag"><em>☁️</em>Cloud Data Sources</span><span class="tech-tag"><em>📄</em>Flat File Integration</span><span class="tech-tag"><em>🔐</em>Role-Based Security</span></div>
-    </div>
+  <div class="impact-bar reveal">
+    <div class="impact-big">98%</div>
+    <div class="impact-text"><h3>Query time reduction — 40 min to 30 seconds</h3><p>Reports that took 40–50 minutes now execute in 30–40 seconds. C-suite confidence in BI as a decision tool was fully restored. Zero additional infrastructure investment required — all gains through VQL engineering.</p></div>
+  </div>
 
-    <div class="content-block reveal">
-      <div class="sec-label">Key Outcomes</div>
-      <div class="results"><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>98%+ query time reduction</strong> — reports that took 40–50 minutes now execute in 30–40 seconds, enabling near-real-time BI.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>C-suite data confidence restored</strong> — leadership now uses BI dashboards as primary decision-support tools, replacing delayed manual reporting.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Unified virtualised data layer</strong> — all sources (databases, APIs, cloud, flat files) accessible through a single optimised Denodo layer with role-based security.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>COVID compliance dashboard in 2 months</strong> — rapid Power BI deployment enabled Trans Alta to meet pandemic office compliance requirements on a tight timeline.</div></div><div class="result-row"><div class="result-check">✅</div><div class="result-text"><strong>Zero additional infrastructure required</strong> — all performance gains achieved through VQL optimisation and caching strategy alone.</div></div></div>
-    </div>
+  <div class="cblock">
+    <div class="sec-eye">Solution Delivery</div>
+    <div class="steps"><div class="step reveal"><div class="step-dot">1</div><div class="step-body"><h4>Query Performance Diagnostic</h4><p>Full audit of existing Denodo base views, derived views, and join strategies to identify the specific patterns causing 40–50 minute execution times. Profiled every bottleneck individually before touching any code.</p></div></div><div class="step reveal"><div class="step-dot">2</div><div class="step-body"><h4>Denodo VQL Model Reconstruction</h4><p>Rebuilt virtual data models from scratch — push-down query optimisation, elimination of redundant derived views, and restructured joins to minimise data movement across the virtualisation layer.</p></div></div><div class="step reveal"><div class="step-dot">3</div><div class="step-body"><h4>Caching Configuration & Refresh Strategy</h4><p>Implemented intelligent caching at the Denodo layer for frequently accessed datasets — full and partial cache modes with scheduled refresh cycles balancing data freshness against performance.</p></div></div><div class="step reveal"><div class="step-dot">4</div><div class="step-body"><h4>Role-Based Security & Data Masking</h4><p>Designed and implemented RBAC policies and data masking within Denodo — sensitive operational and financial data accessible only to authorised users with appropriate masking.</p></div></div><div class="step reveal"><div class="step-dot">5</div><div class="step-body"><h4>5 Executive Power BI Dashboards</h4><p>Built 5 executive-level Power BI dashboards connected to the rebuilt Denodo layer — transforming complex multi-source energy datasets into clear narratives for 8–10 C-suite stakeholders.</p></div></div></div>
+  </div>
 
-    
-  </main>
+  <div class="cblock reveal">
+    <div class="sec-eye">Technology Stack</div>
+    <div class="techs"><span class="tech"><em>🗄️</em>Denodo VQL</span><span class="tech"><em>📊</em>Power BI</span><span class="tech"><em>💾</em>SQL</span><span class="tech"><em>🔌</em>REST APIs</span><span class="tech"><em>☁️</em>Cloud Sources</span><span class="tech"><em>📄</em>Flat File Integration</span><span class="tech"><em>🔐</em>RBAC & Data Masking</span></div>
+  </div>
 
-  <aside class="sidebar">
-    <div class="side-card">
-      <div class="side-card-title">Project Details</div>
-      <div class="meta-row"><span class="meta-key">Client</span><span class="meta-val">Trans Alta Corporation</span></div><div class="meta-row"><span class="meta-key">Industry</span><span class="meta-val">Energy / Utilities</span></div><div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">Calgary, Canada</span></div><div class="meta-row"><span class="meta-key">Period</span><span class="meta-val">Feb 2019 – May 2020</span></div><div class="meta-row"><span class="meta-key">Role</span><span class="meta-val">BI Developer — IT Project Services</span></div><div class="meta-row"><span class="meta-key">Performance Gain</span><span class="meta-val">98%+ query time reduction</span></div>
-    </div>
-    <div class="impact-highlight">
-      <div class="sec-label" style="margin-bottom:8px">Top Impact</div>
-      <div class="impact-num">98%</div>
-      <div class="impact-desc">Query time reduction — 40 min to 30 seconds</div>
-    </div>
-    <a href="shabih_portfolio.html#projects" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-muted);border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:12px 16px;transition:all var(--ease)" onmouseover="this.style.color='var(--accent)';this.style.borderColor='var(--accent)'" onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border-strong)'">← Back to All Projects</a>
-  </aside>
+  <div class="cblock reveal">
+    <div class="sec-eye">Key Outcomes</div>
+    <div class="results"><div class="res"><div class="res-ico">✅</div><div class="res-tx"><strong>98%+ query time reduction</strong> — reports that took 40–50 minutes now execute in 30–40 seconds enabling near-real-time BI.</div></div><div class="res"><div class="res-ico">✅</div><div class="res-tx"><strong>C-suite data confidence fully restored</strong> — leadership now uses BI dashboards as primary decision-support tools.</div></div><div class="res"><div class="res-ico">✅</div><div class="res-tx"><strong>Unified virtualised data layer</strong> — all sources accessible through a single optimised Denodo layer with role-based security.</div></div><div class="res"><div class="res-ico">✅</div><div class="res-tx"><strong>Zero additional infrastructure required</strong> — all performance gains achieved through VQL optimisation and caching strategy alone.</div></div></div>
+  </div>
+
+  
+</main>
+
+<aside class="sidebar">
+  <div class="scard">
+    <div class="scard-title">Project Details</div>
+    <div class="smeta"><div class="smeta-row"><span class="smeta-k">Client</span><span class="smeta-v">Trans Alta Corporation</span></div><div class="smeta-row"><span class="smeta-k">Industry</span><span class="smeta-v">Energy / Utilities</span></div><div class="smeta-row"><span class="smeta-k">Location</span><span class="smeta-v">Calgary, Canada</span></div><div class="smeta-row"><span class="smeta-k">Period</span><span class="smeta-v">Feb 2019 – May 2020</span></div><div class="smeta-row"><span class="smeta-k">Role</span><span class="smeta-v">BI Developer — IT Project Services</span></div><div class="smeta-row"><span class="smeta-k">Performance Gain</span><span class="smeta-v">98%+ query time reduction</span></div></div>
+  </div>
+  <div class="simp">
+    <div class="sec-eye" style="margin-bottom:8px">Top Impact</div>
+    <div class="simp-num">98%</div>
+    <div class="simp-desc">Query time reduction — 40 minutes to 30 seconds, zero new infrastructure</div>
+  </div>
+  
+  <a href="index.html#projects" class="back-btn">← Back to All Projects</a>
+</aside>
 </div>
 
-<div class="proj-nav-bar"><a href="project-04-oracle-migration.html" class="pnav-btn prev"><span class="pnav-arrow">←</span><div><span class="pnav-label">Previous</span><span class="pnav-title">Oracle PCM → Unifier Migration</span></div></a><a href="project-06-abudhabi-airport.html" class="pnav-btn next"><div><span class="pnav-label">Next</span><span class="pnav-title">$10B Abu Dhabi Airport Expansion</span></div><span class="pnav-arrow">→</span></a></div>
+<div class="pnav"><a href="project-04-oracle-migration.html" class="pnav-btn"><span class="pnav-arr">←</span><div><span class="pnav-lbl">Previous</span><span class="pnav-ttl">Oracle PCM → Unifier Migration</span></div></a><a href="project-06-abudhabi-airport.html" class="pnav-btn next"><div><span class="pnav-lbl">Next</span><span class="pnav-ttl">$10B Abu Dhabi Airport Expansion</span></div><span class="pnav-arr">→</span></a></div>
 
 <script>
-const T=document.getElementById('themeToggle');
+const T=document.getElementById('TT');
 T.addEventListener('click',()=>{const c=document.documentElement.getAttribute('data-theme');document.documentElement.setAttribute('data-theme',c==='dark'?'light':'dark');T.textContent=c==='dark'?'🌙':'☀️';});
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.1});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 document.querySelectorAll('.counter').forEach(el=>{
-  const target=parseFloat(el.dataset.target);const suffix=el.dataset.suffix||'';const prefix=el.dataset.prefix||'';
-  const isFloat=el.dataset.float==='1';
-  const cobs=new IntersectionObserver(([entry])=>{
-    if(!entry.isIntersecting)return;cobs.unobserve(el);
-    let cur=0;const step=target/60;
-    const t=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(t);}
-    el.textContent=prefix+(isFloat?cur.toFixed(1):Math.floor(cur))+suffix;},20);
-  },{threshold:0.5});
-  cobs.observe(el);
+  const tgt=parseFloat(el.dataset.t),sfx=el.dataset.s||'',pfx=el.dataset.p||'';
+  const co=new IntersectionObserver(([en])=>{
+    if(!en.isIntersecting)return;co.unobserve(el);
+    let c=0;const step=tgt/55;
+    const tm=setInterval(()=>{c+=step;if(c>=tgt){c=tgt;clearInterval(tm);}
+    el.textContent=pfx+Math.floor(c)+sfx;},18);
+  },{threshold:.5});co.observe(el);
 });
 </script>
 
