@@ -20,8 +20,8 @@
   --accent2: #a78bfa;
   --accent-glow: rgba(91,141,248,0.18);
   --text: #f0f0f5;
-  --text-muted: #8888a0;
-  --text-dim: #555568;
+  --text-muted: #b0b0c8;
+  --text-dim: #7878a0;
   --white: #ffffff;
   --success: #34d399;
   --font-display: 'Syne', sans-serif;
@@ -174,7 +174,9 @@ section { padding: clamp(60px, 8vw, 120px) clamp(16px, 5vw, 80px); }
 .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
 .project-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all var(--transition); }
 .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-.project-img { height: 160px; background: linear-gradient(135deg, var(--surface2), var(--bg)); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.project-img { height: 180px; background: var(--surface2); position: relative; overflow: hidden; transition: transform var(--transition); }
+.project-img img { transition: transform 0.5s ease; }
+.project-card:hover .project-img img { transform: scale(1.06); }
 .project-img-icon { font-size: 48px; opacity: 0.4; }
 .project-cat-badge { position: absolute; top: 12px; left: 12px; background: var(--accent); color: #fff; border-radius: 100px; padding: 4px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
 .project-body { padding: 24px; }
@@ -578,7 +580,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
     </div>
     <div class="project-grid reveal">
       <div class="project-card" data-cat="dt">
-        <div class="project-img"><div class="project-img-icon">🏗️</div><span class="project-cat-badge">Digital Transformation</span></div>
+        <div class="project-img" style="padding:0"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&fit=crop" alt="Saudi Arabia construction site" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Digital Transformation</span></div>
         <div class="project-body">
           <h3>InEight Platform — Company-Wide Rollout</h3>
           <p>End-to-end implementation of InEight Project Management with REST API integration to ACONEX, scaling adoption to 80+ active users across live construction projects.</p>
@@ -592,7 +594,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="ai">
-        <div class="project-img"><div class="project-img-icon">⚡</div><span class="project-cat-badge">AI Project</span></div>
+        <div class="project-img" style="padding:0"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop" alt="AI technology" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">AI Project</span></div>
         <div class="project-body">
           <h3>Enterprise AI Workflow Automation Suite</h3>
           <p>Designed and deployed intelligent automation workflows using Claude, Copilot, n8n, Emergent, and Lovable to eliminate repetitive tasks across project and corporate functions.</p>
@@ -606,7 +608,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="dt">
-        <div class="project-img"><div class="project-img-icon">📱</div><span class="project-cat-badge">Digital Transformation</span></div>
+        <div class="project-img" style="padding:0"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80&fit=crop" alt="Engineer with tablet on site" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Digital Transformation</span></div>
         <div class="project-body">
           <h3>PowerApps Site Inspection Digitization</h3>
           <p>Replaced paper-based SOR and inspection workflows with a PowerApps solution on iPads — real-time photo uploads, centralized database, zero paper.</p>
@@ -620,7 +622,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="pc">
-        <div class="project-img"><div class="project-img-icon">🔄</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-img" style="padding:0"><img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80&fit=crop" alt="Toronto transit rail" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Project Controls</span></div>
         <div class="project-body">
           <h3>Oracle PCM to Unifier Migration (Metrolinx)</h3>
           <p>Delivered end-to-end migration of 120+ projects and ~6TB of contract data from Oracle PCM to Oracle Unifier — on time and within budget in under 2 years.</p>
@@ -634,7 +636,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="bi">
-        <div class="project-img"><div class="project-img-icon">📊</div><span class="project-cat-badge">Business Intelligence</span></div>
+        <div class="project-img" style="padding:0"><img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80&fit=crop" alt="Trans Alta energy wind turbines" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Business Intelligence</span></div>
         <div class="project-body">
           <h3>Denodo Query Performance Optimization (Trans Alta)</h3>
           <p>Rebuilt Denodo virtual data models and VQL, slashing critical query execution from 40–50 minutes down to 30–40 seconds — enabling near-real-time BI delivery.</p>
@@ -648,7 +650,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="pc">
-        <div class="project-img"><div class="project-img-icon">✈️</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-img" style="padding:0"><img src="Abu_Dhabi_Airport_1.jpg" alt="Abu Dhabi Airport Expansion" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Project Controls</span></div>
         <div class="project-body">
           <h3>$10B Abu Dhabi Airport Expansion (PARSONS)</h3>
           <p>Supported a 150–200 person program management team with cost and schedule tracking systems, replacing entirely manual processes on a $10B+ program spanning 10+ years.</p>
@@ -662,7 +664,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="pc">
-        <div class="project-img"><div class="project-img-icon">🌊</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-img" style="padding:0"><img src="Al_Raha_Beach_Project_1.png" alt="Al Raha Beach Development" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Project Controls</span></div>
         <div class="project-body">
           <h3>$20B Al Raha Beach Development (ALDAR LOR)</h3>
           <p>Trained 500–600 users on Primavera Contract Manager in the largest PCM deployment in the region — 1,000 active platform users on a $20B+ waterfront development.</p>
@@ -676,7 +678,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="bi">
-        <div class="project-img"><div class="project-img-icon">🛢️</div><span class="project-cat-badge">Business Intelligence</span></div>
+        <div class="project-img" style="padding:0"><img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=600&q=80&fit=crop" alt="Cenovus oil sands" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Business Intelligence</span></div>
         <div class="project-body">
           <h3>Oracle Contracts + Maximo Integration (Cenovus)</h3>
           <p>Architected an 8-feed data integration between Maximo and Oracle Contract Management, reducing monthly contract reconciliation from weeks to 2–3 hours.</p>
@@ -690,7 +692,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="pc" data-hidden="false">
-        <div class="project-img"><div class="project-img-icon">💧</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-img" style="padding:0"><img src="Shweihat_Water_Transmission_Scheme_2.png" alt="Shuweihat Water Transmission Scheme pumping station" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Project Controls</span></div>
         <div class="project-body">
           <h3>$850M Shuweihat Water Transmission Scheme (PROJACS)</h3>
           <p>Delivered Primavera Expedition implementation for Abu Dhabi's critical water infrastructure program — going live in 6 months against a 2-year planned timeline, onboarding 60 users across 4 distributed sites via Citrix. The first major project of a 23-year career.</p>
@@ -704,7 +706,7 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
         </div>
       </div>
       <div class="project-card" data-cat="pc">
-        <div class="project-img"><div class="project-img-icon">🌴</div><span class="project-cat-badge">Project Controls</span></div>
+        <div class="project-img" style="padding:0"><img src="Palm_Jumeirah_Vehicular_Tunnel_Project_1.jpg" alt="Palm Jumeirah Vehicular Tunnel" style="width:100%;height:100%;object-fit:cover;display:block"/><span class="project-cat-badge">Project Controls</span></div>
         <div class="project-body">
           <h3>Palm Jumeirah Vehicular Tunnel (PROJACS)</h3>
           <p>Supported project controls and Primavera Expedition system administration on one of the world's most iconic construction projects — managing schedule updates, resource loading, and cost-loaded baseline tracking on a subaqueous tunnel beneath the Arabian Gulf.</p>
