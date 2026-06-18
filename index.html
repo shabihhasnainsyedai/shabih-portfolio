@@ -1091,9 +1091,28 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
     <p style="font-size:13px;color:var(--text-muted);max-width:260px;line-height:1.6">Scan this QR code to share my portfolio instantly — on your phone, in a meeting, or print it on your business card.</p>
   </div>
   <div style="background:#fff;padding:16px;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.25);flex-shrink:0">
-    <img src="https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=https%3A//cuttingedgeai.tech&choe=UTF-8&chld=H|1" 
-         width="180" height="180" alt="QR Code — cuttingedgeai.tech" 
-         style="display:block;border-radius:4px"/>
+    <img id="qr-img" src="" width="180" height="180" alt="QR Code — cuttingedgeai.tech" 
+         style="display:block;border-radius:4px;image-rendering:pixelated"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+    (function(){
+      var wrap = document.createElement('div');
+      wrap.style.cssText = 'position:absolute;left:-9999px;top:-9999px';
+      document.body.appendChild(wrap);
+      new QRCode(wrap, {
+        text: 'https://cuttingedgeai.tech',
+        width: 360, height: 360,
+        colorDark: '#09090f',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+      setTimeout(function(){
+        var c = wrap.querySelector('canvas');
+        if(c) document.getElementById('qr-img').src = c.toDataURL('image/png');
+        document.body.removeChild(wrap);
+      }, 300);
+    })();
+    </script>
   </div>
 </div>
 </div>
