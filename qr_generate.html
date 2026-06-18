@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body style="background:#fff;margin:0;padding:40px;display:flex;justify-content:center">
+<div>
+  <div id="qr"></div>
+  <script>
+    new QRCode(document.getElementById("qr"), {
+      text: "https://cuttingedgeai.tech",
+      width: 400,
+      height: 400,
+      colorDark: "#09090f",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+</div>
+</body>
+</html>
