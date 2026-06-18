@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Private Briefing | Shabih ul Hasnain</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#09090f;--sur:#111118;--sur2:#18181f;--bdr:rgba(255,255,255,0.08);--bdr2:rgba(255,255,255,0.14);--acc:#5b8df8;--acc2:#a78bfa;--acc3:#34d399;--tx:#f0f0f5;--txm:#b0b0c8;--txd:#7878a0;--fd:'Syne',sans-serif;--fb:'Inter',sans-serif;--r:14px;--rs:8px;--ease:0.3s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--acc);text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);padding:0 clamp(16px,4vw,56px);display:flex;align-items:center;justify-content:space-between;height:64px}
+.nlogo{font-family:var(--fd);font-size:15px;font-weight:800;color:var(--tx);letter-spacing:-.5px}
+.nlogo span{color:var(--acc)}
+.back-nav{display:inline-flex;align-items:center;gap:8px;color:var(--txm);font-size:14px;font-weight:500;transition:color var(--ease)}
+.back-nav:hover{color:var(--acc)}
+
+/* GATE */
+#gate{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:80px 20px 40px}
+.gate-card{background:var(--sur);border:1px solid var(--bdr2);border-radius:20px;padding:48px 40px;max-width:440px;width:100%;text-align:center}
+.gate-icon{font-size:48px;margin-bottom:20px}
+.gate-title{font-family:var(--fd);font-size:28px;font-weight:800;margin-bottom:8px}
+.gate-sub{font-size:14px;color:var(--txm);margin-bottom:32px;line-height:1.6}
+.gate-input{width:100%;background:var(--sur2);border:1px solid var(--bdr2);border-radius:var(--rs);padding:14px 18px;font-size:16px;color:var(--tx);font-family:var(--fb);outline:none;transition:border-color var(--ease);text-align:center;letter-spacing:2px}
+.gate-input:focus{border-color:var(--acc)}
+.gate-input::placeholder{letter-spacing:0;color:var(--txd)}
+.gate-btn{width:100%;margin-top:14px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;border-radius:var(--rs);padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fb);transition:opacity var(--ease)}
+.gate-btn:hover{opacity:0.88}
+.gate-error{color:#f87171;font-size:13px;margin-top:10px;display:none}
+.gate-hint{font-size:11px;color:var(--txd);margin-top:20px}
+
+/* CONTENT */
+#content{display:none;padding:100px clamp(16px,5vw,80px) 80px;max-width:1100px;margin:0 auto;width:100%}
+.sec-eye{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--acc);margin-bottom:10px}
+.sec-eye::before{content:'';width:18px;height:2px;background:var(--acc);border-radius:2px}
+.page-title{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:8px;letter-spacing:-1px}
+.page-sub{font-size:16px;color:var(--txm);margin-bottom:48px;line-height:1.7}
+
+/* DOWNLOAD CARD */
+.dl-hero{background:linear-gradient(135deg,rgba(91,141,248,.12),rgba(167,139,250,.08));border:1px solid rgba(91,141,248,.25);border-radius:20px;padding:32px;display:flex;align-items:center;gap:24px;margin-bottom:48px;transition:all var(--ease)}
+.dl-hero:hover{border-color:var(--acc);transform:translateY(-2px)}
+.dl-hero-icon{font-size:48px;flex-shrink:0}
+.dl-hero-body{flex:1}
+.dl-hero-title{font-family:var(--fd);font-size:22px;font-weight:800;margin-bottom:6px}
+.dl-hero-sub{font-size:14px;color:var(--txm);margin-bottom:12px;line-height:1.6}
+.dl-hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(91,141,248,.15);border:1px solid rgba(91,141,248,.3);color:var(--acc);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700}
+.dl-hero-btn{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;border-radius:var(--rs);padding:14px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);white-space:nowrap;flex-shrink:0;transition:opacity var(--ease);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.dl-hero-btn:hover{opacity:0.88}
+
+/* PROJECTS GRID */
+.projects-title{font-family:var(--fd);font-size:22px;font-weight:800;margin-bottom:20px}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.proj-card{background:var(--sur);border:1px solid var(--bdr2);border-radius:var(--r);padding:20px 22px;transition:all var(--ease);display:flex;align-items:flex-start;gap:14px}
+.proj-card:hover{border-color:var(--acc);transform:translateY(-2px)}
+.proj-num{font-family:var(--fd);font-size:11px;font-weight:800;color:var(--acc);background:rgba(91,141,248,.1);border:1px solid rgba(91,141,248,.2);border-radius:var(--rs);padding:4px 10px;flex-shrink:0;margin-top:2px}
+.proj-body h4{font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.35}
+.proj-body p{font-size:12px;color:var(--txm);line-height:1.5;margin-bottom:8px}
+.proj-link{font-size:12px;font-weight:600;color:var(--acc);display:inline-flex;align-items:center;gap:4px}
+.proj-cat{display:inline-block;font-size:10px;font-weight:700;color:var(--txd);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+
+/* LOGOUT */
+.logout-bar{border-top:1px solid var(--bdr);padding:24px clamp(16px,5vw,80px);text-align:center;margin-top:40px}
+.logout-btn{background:none;border:1px solid var(--bdr2);color:var(--txm);border-radius:var(--rs);padding:10px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);transition:all var(--ease)}
+.logout-btn:hover{color:var(--acc);border-color:var(--acc)}
+
+@media(max-width:600px){.dl-hero{flex-direction:column;text-align:center}.dl-hero-btn{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nlogo">Shabih ul Hasnain<span>.</span></a>
+  <a href="index.html" class="back-nav">← Back to Portfolio</a>
+</nav>
+
+<!-- GATE -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-icon">🔐</div>
+    <h1 class="gate-title">Private Briefing</h1>
+    <p class="gate-sub">This section contains the full portfolio deck and direct links to all project case studies. Enter the passkey to continue.</p>
+    <input type="password" class="gate-input" id="passInput" placeholder="Enter passkey" autocomplete="off"/>
+    <button class="gate-btn" onclick="checkPass()">Access Briefing →</button>
+    <p class="gate-error" id="gateError">Incorrect passkey. Please try again.</p>
+    <p class="gate-hint">Contact shabih@cuttingedgeai.tech to request access</p>
+  </div>
+</div>
+
+<!-- PRIVATE CONTENT -->
+<div id="content">
+  <div class="sec-eye">Private Briefing</div>
+  <h1 class="page-title">Welcome, Shabih.</h1>
+  <p class="page-sub">Full portfolio deck and all project case studies in one place. For your eyes and trusted contacts only.</p>
+
+  <!-- PPTX DOWNLOAD -->
+  <a href="Shabih_ul_Hasnain_Portfolio.pptx" download class="dl-hero">
+    <div class="dl-hero-icon">📊</div>
+    <div class="dl-hero-body">
+      <div class="dl-hero-title">Portfolio Deck — Full PPTX</div>
+      <div class="dl-hero-sub">14 slides · Cover · Executive Summary · Career Timeline · 10 Project Case Studies · Contact & CTA. Dark theme, client-ready.</div>
+      <div class="dl-hero-badge">⬇ Download · Dark Theme · For Clients & Presentations</div>
+    </div>
+    <span class="dl-hero-btn">⬇ Download PPTX</span>
+  </a>
+
+  <!-- ALL PROJECTS -->
+  <div class="projects-title">All Project Case Studies</div>
+  <div class="proj-grid">
+
+    <a href="project-01-ineight.html" class="proj-card">
+      <span class="proj-num">01</span>
+      <div class="proj-body">
+        <div class="proj-cat">Digital Transformation</div>
+        <h4>InEight Platform — Company-Wide Rollout</h4>
+        <p>El-Seif Engineering · Saudi Arabia · 2023–Present</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-02-ai-automation.html" class="proj-card">
+      <span class="proj-num">02</span>
+      <div class="proj-body">
+        <div class="proj-cat">AI Enablement</div>
+        <h4>Enterprise AI Workflow Automation Suite</h4>
+        <p>El-Seif Engineering · Saudi Arabia · 2023–Present</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-03-powerapps-inspection.html" class="proj-card">
+      <span class="proj-num">03</span>
+      <div class="proj-body">
+        <div class="proj-cat">Digital Transformation</div>
+        <h4>PowerApps Site Inspection Digitization</h4>
+        <p>El-Seif Engineering · Saudi Arabia · 2023–Present</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-04-oracle-migration.html" class="proj-card">
+      <span class="proj-num">04</span>
+      <div class="proj-body">
+        <div class="proj-cat">Data Migration · Project Controls</div>
+        <h4>Oracle PCM → Unifier Migration</h4>
+        <p>Metrolinx / Comtech · Toronto · 2020–2023</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-05-denodo-bi.html" class="proj-card">
+      <span class="proj-num">05</span>
+      <div class="proj-body">
+        <div class="proj-cat">Business Intelligence</div>
+        <h4>98% Query Reduction — Denodo BI</h4>
+        <p>Trans Alta Corporation · Calgary · 2019–2020</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-06-abudhabi-airport.html" class="proj-card">
+      <span class="proj-num">06</span>
+      <div class="proj-body">
+        <div class="proj-cat">Project Controls · Aviation</div>
+        <h4>$10B+ Abu Dhabi Airport Expansion</h4>
+        <p>PARSONS International · Abu Dhabi · 2009–2011</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-07-alraha-beach.html" class="proj-card">
+      <span class="proj-num">07</span>
+      <div class="proj-body">
+        <div class="proj-cat">Project Controls · Real Estate</div>
+        <h4>$20B+ Al Raha Beach Development</h4>
+        <p>ALDAR Laing O'Rourke · Abu Dhabi · 2007–2009</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-08-cenovus-integration.html" class="proj-card">
+      <span class="proj-num">08</span>
+      <div class="proj-body">
+        <div class="proj-cat">Business Intelligence · Oil & Gas</div>
+        <h4>Oracle Contracts + Maximo 8-Feed Integration</h4>
+        <p>Cenovus Energy · Calgary · 2016–2018</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-09-shuweihat.html" class="proj-card">
+      <span class="proj-num">09</span>
+      <div class="proj-body">
+        <div class="proj-cat">Project Controls · Infrastructure</div>
+        <h4>$850M Shuweihat Water Transmission Scheme</h4>
+        <p>PROJACS International · Abu Dhabi · 2002–2006</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+    <a href="project-10-palm-jumeirah-tunnel.html" class="proj-card">
+      <span class="proj-num">10</span>
+      <div class="proj-body">
+        <div class="proj-cat">Project Controls · Iconic</div>
+        <h4>Palm Jumeirah Vehicular Tunnel</h4>
+        <p>PROJACS International · Dubai · 2002–2006</p>
+        <span class="proj-link">View Case Study →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="logout-bar">
+    <button class="logout-btn" onclick="logout()">🔒 Lock & Exit</button>
+  </div>
+</div>
+
+<script>
+// Passkey hash — SHA-256 of "CuttingEdgeAI2026"
+const HASH = "0d341d9f7b79f2fcadd96a3b9563ea0d11bea2efe79a86a6d2e7e21903e7de0c";
+
+async function sha256(msg) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(msg));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+
+async function checkPass() {
+  const val = document.getElementById("passInput").value.trim();
+  const h = await sha256(val);
+  if (h === HASH) {
+    sessionStorage.setItem("pb_auth", "1");
+    showContent();
+  } else {
+    document.getElementById("gateError").style.display = "block";
+    document.getElementById("passInput").value = "";
+    document.getElementById("passInput").focus();
+  }
+}
+
+function showContent() {
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+
+function logout() {
+  sessionStorage.removeItem("pb_auth");
+  window.location.href = "index.html";
+}
+
+// Auto-unlock if already authenticated this session
+if (sessionStorage.getItem("pb_auth") === "1") showContent();
+
+// Allow Enter key
+document.getElementById("passInput").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPass();
+});
+</script>
+</body>
+</html>
