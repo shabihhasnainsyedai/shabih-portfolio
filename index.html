@@ -111,18 +111,21 @@ nav {
 .stat-num span { color: var(--accent); }
 .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 .portrait-frame {
-  width: 300px; height: 370px;
+  width: 340px; height: 410px;
   background: linear-gradient(135deg, var(--surface2), var(--surface));
   border-radius: 24px; border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: visible;
-  box-shadow: 0 0 0 1px var(--border), 0 24px 64px rgba(91,141,248,0.15);
+  box-shadow: 0 0 0 1px var(--border), 0 24px 64px rgba(91,141,248,0.18);
+  flex-shrink: 0;
 }
 .portrait-frame img {
-  width: 100%; height: 100%; object-fit: cover;
-  object-position: center top; border-radius: 24px;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  width: 340px; height: 410px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 24px;
+  display: block;
+  image-rendering: auto;
 }
 .portrait-placeholder { text-align: center; color: var(--text-dim); padding: 24px; }
 .portrait-placeholder svg { width: 80px; height: 80px; margin-bottom: 12px; opacity: 0.4; display: block; margin-left: auto; margin-right: auto; }
@@ -410,8 +413,11 @@ footer { background: var(--bg); border-top: 1px solid var(--border); padding: 40
     </div>
     <div class="hero-portrait">
       <div class="portrait-frame">
-        <img src="Shabih_ID4.jpg" alt="Shabih ul Hasnain" 
-          style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:24px"/>
+        <img src="Shabih_ID4.jpg" 
+          srcset="Shabih_ID4.jpg 1x, Shabih_ID4.jpg 2x"
+          alt="Shabih ul Hasnain" 
+          width="340" height="410"
+          style="width:340px;height:410px;object-fit:cover;object-position:center top;display:block;border-radius:24px"/>
         <div class="portrait-badge">Digital Transformation · ME &amp; North America</div>
       </div>
     </div>
