@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Talk — Every Language Deserves a Voice | Cutting Edge AI</title>
+  <meta name="description" content="Real voices. Real scripts. The languages big tech forgot. Global Talk translates and speaks 50+ languages — including Pashto, Arabic, Urdu — with natural ElevenLabs voices." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:       #0a0a0a;
+      --deep:        #111111;
+      --surface:     #1a1a1a;
+      --border:      rgba(255,255,255,0.08);
+      --white:       #f5f3ee;
+      --muted:       rgba(245,243,238,0.5);
+      --accent:      #e8612a;   /* orange — pulled from Global Talk UI */
+      --accent-dim:  rgba(232,97,42,0.15);
+      --gold:        #c9a84c;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--accent);
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 8rem 3rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(232,97,42,0.12), transparent),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.06), transparent);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      max-width: 14ch;
+      margin-bottom: 0.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 40ch;
+    }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--accent);
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 3rem;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-scroll::before {
+      content: '';
+      display: block; width: 40px; height: 1px;
+      background: var(--muted);
+    }
+
+    /* ── PROOF BAR ── */
+    .proof-bar {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 3rem;
+      display: flex; gap: 3rem; align-items: center;
+      overflow-x: auto;
+    }
+    .proof-item {
+      display: flex; flex-direction: column; flex-shrink: 0;
+    }
+    .proof-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .proof-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .proof-divider {
+      width: 1px; height: 40px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ── DIFFERENTIATOR ── */
+    .diff-section {
+      padding: 6rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .diff-card {
+      background: var(--deep);
+      padding: 2.5rem;
+    }
+    .diff-card.accent-card {
+      background: var(--accent-dim);
+      border: 1px solid rgba(232,97,42,0.2);
+    }
+    .diff-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .diff-label.bad { color: rgba(255,100,100,0.6); }
+    .diff-label.good { color: var(--accent); }
+    .diff-statement {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--white);
+    }
+    .diff-statement.dim { color: var(--muted); }
+
+    /* ── FEATURES ── */
+    .features-section {
+      padding: 6rem 3rem;
+      background: var(--deep);
+    }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .feature-card {
+      background: var(--deep);
+      padding: 2.5rem 2rem;
+      transition: background 0.2s;
+    }
+    .feature-card:hover { background: var(--surface); }
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .feature-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+    .feature-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      padding: 6rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .price-card {
+      background: var(--deep);
+      padding: 2.5rem 1.75rem;
+      display: flex; flex-direction: column;
+      position: relative;
+    }
+    .price-card.featured {
+      background: var(--accent-dim);
+      border: 1px solid rgba(232,97,42,0.3);
+    }
+    .price-badge {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--accent);
+      padding: 0.2rem 0.75rem;
+      white-space: nowrap;
+    }
+    .price-tier {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+    }
+    .price-amount sup {
+      font-size: 1.2rem;
+      vertical-align: super;
+      font-weight: 300;
+    }
+    .price-period {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .price-features {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 1.75rem;
+    }
+    .price-features li {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+    .price-features li::before {
+      content: '—';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      margin-top: 0.1rem;
+    }
+    .price-cta {
+      display: block;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .price-cta.primary {
+      background: var(--accent);
+      color: var(--black);
+    }
+    .price-cta.outline {
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .price-cta:hover { opacity: 0.8; }
+
+    /* ── PASHTO CALLOUT ── */
+    .callout {
+      margin: 0 3rem;
+      padding: 4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .callout-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--white);
+    }
+    .callout-quote em { color: var(--accent); font-style: italic; }
+    .callout-detail {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .callout-detail strong { color: var(--white); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 6rem;
+      padding: 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+      .proof-bar { padding: 1.5rem; gap: 1.5rem; }
+      .diff-section, .pricing-section { padding: 4rem 1.5rem; }
+      .features-section { padding: 4rem 1.5rem; }
+      .diff-grid, .features-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .callout { margin: 0 1.5rem; padding: 2.5rem; grid-template-columns: 1fr; gap: 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="https://cuttingedgeai.tech">Cutting Edge <span>AI</span></a>
+  <ul class="nav-links">
+    <li><a href="https://cuttingedgeai.tech">Portfolio</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a class="nav-cta" href="https://lovable.dev/preview/rFfWCaUntr15bXdlDA4kzcuntp1pydb4" target="_blank" rel="noopener">Try Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Cutting Edge AI &mdash; Product 01</p>
+  <h1 class="hero-title">Global<br><em>Talk</em></h1>
+  <p class="hero-tagline">Every language deserves a voice. Even the ones big apps forgot.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://lovable.dev/preview/rFfWCaUntr15bXdlDA4kzcuntp1pydb4" target="_blank" rel="noopener">Try it free</a>
+    <a class="btn-secondary" href="#pricing">See pricing</a>
+  </div>
+  <p class="hero-scroll">Scroll to explore</p>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item">
+    <span class="proof-number">50+</span>
+    <span class="proof-label">Languages</span>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <span class="proof-number">ElevenLabs</span>
+    <span class="proof-label">Voice Engine</span>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <span class="proof-number">v3</span>
+    <span class="proof-label">Model — eleven_v3</span>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <span class="proof-number">Pashto</span>
+    <span class="proof-label">Where Google is silent</span>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <span class="proof-number">$2.99</span>
+    <span class="proof-label">Weekly — from</span>
+  </div>
+</div>
+
+<!-- DIFFERENTIATOR -->
+<section class="diff-section">
+  <p class="section-eyebrow">The difference</p>
+  <h2 class="section-title">Google Translate<br>cannot say a single word<br>of Pashto.</h2>
+  <div class="diff-grid">
+    <div class="diff-card">
+      <p class="diff-label bad">Every other app</p>
+      <p class="diff-statement dim">A greyed-out speaker icon. No voice. 50 million speakers, zero audio support.</p>
+    </div>
+    <div class="diff-card accent-card">
+      <p class="diff-label good">Global Talk</p>
+      <p class="diff-statement">Native Pashto script. Natural ElevenLabs voice. Hear it spoken — properly.</p>
+    </div>
+    <div class="diff-card">
+      <p class="diff-label bad">Robotic TTS</p>
+      <p class="diff-statement dim">Machine voices that sound like a ticket machine. Nobody sends those to family.</p>
+    </div>
+    <div class="diff-card accent-card">
+      <p class="diff-label good">Human-grade audio</p>
+      <p class="diff-statement">eleven_v3 — the most expressive voice model available. Warm. Natural. Worth listening to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PASHTO CALLOUT -->
+<div class="callout">
+  <p class="callout-quote">"I asked it for Pashto. It gave me <em>Urdu</em>. Fifteen iterations later, it apologised."</p>
+  <div class="callout-detail">
+    <p>That's the experience that built Global Talk. A real problem, encountered while building in public. The AI kept defaulting to Urdu — a close language, but not the right one.</p>
+    <br/>
+    <p>Global Talk uses a <strong>three-step Pashto validation chain</strong>: if the output doesn't contain Pashto-specific script characters (ړ ږ ګ ځ), it retries — automatically, silently, until it's right.</p>
+    <br/>
+    <p>That's not a feature. That's the minimum standard for a language that deserves better.</p>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="features-inner">
+    <p class="section-eyebrow">What it does</p>
+    <h2 class="section-title">Translation built for<br>real conversations.</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🎙️</span>
+        <p class="feature-name">Speak & Translate</p>
+        <p class="feature-desc">Speak into the app, translate instantly, hear it back in the target language. No typing required.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔊</span>
+        <p class="feature-name">Natural Voice Playback</p>
+        <p class="feature-desc">Every translation is spoken aloud using ElevenLabs eleven_v3 — the warmest, most natural AI voice available.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💬</span>
+        <p class="feature-name">Two-Way Conversation</p>
+        <p class="feature-desc">Real-time back-and-forth translation. Hand the phone across the table. Talk naturally.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📷</span>
+        <p class="feature-name">Scan & Translate</p>
+        <p class="feature-desc">Point your camera at a menu, sign, or document. Instant translation. No typing. Premium feature.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🖼️</span>
+        <p class="feature-name">Photo Import</p>
+        <p class="feature-desc">Import any photo from your camera roll. Perfect for students scanning textbooks or foreign articles. Premium feature.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✈️</span>
+        <p class="feature-name">Travel Phrases</p>
+        <p class="feature-desc">Pre-loaded emergency and travel phrases. Works in the airport, the taxi, the restaurant — wherever you land.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <p class="section-eyebrow">Pricing</p>
+  <h2 class="section-title">Pay for what you need.<br>Nothing more.</h2>
+  <div class="pricing-grid">
+
+    <!-- Weekly -->
+    <div class="price-card">
+      <p class="price-tier">Weekly Pass</p>
+      <p class="price-amount"><sup>$</sup>2.99</p>
+      <p class="price-period">One-time · 7 days</p>
+      <ul class="price-features">
+        <li>Unlimited translation</li>
+        <li>30,000 voice characters/day</li>
+        <li>50 scans/day</li>
+        <li>Camera + photo import</li>
+        <li>Perfect for a trip abroad</li>
+      </ul>
+      <a class="price-cta outline" href="https://lovable.dev/preview/rFfWCaUntr15bXdlDA4kzcuntp1pydb4" target="_blank" rel="noopener">Get started</a>
+    </div>
+
+    <!-- Monthly -->
+    <div class="price-card featured">
+      <span class="price-badge">Most popular</span>
+      <p class="price-tier">Monthly</p>
+      <p class="price-amount"><sup>$</sup>6.99</p>
+      <p class="price-period">Per month · cancel anytime</p>
+      <ul class="price-features">
+        <li>Unlimited translation</li>
+        <li>30,000 voice characters/day</li>
+        <li>50 scans/day</li>
+        <li>Camera + photo import</li>
+        <li>Priority support</li>
+      </ul>
+      <a class="price-cta primary" href="https://lovable.dev/preview/rFfWCaUntr15bXdlDA4kzcuntp1pydb4" target="_blank" rel="noopener">Get started</a>
+    </div>
+
+    <!-- Annual -->
+    <div class="price-card">
+      <p class="price-tier">Annual</p>
+      <p class="price-amount"><sup>$</sup>39.99</p>
+      <p class="price-period">Per year · save 52%</p>
+      <ul class="price-features">
+        <li>Everything in Monthly</li>
+        <li>30,000 voice characters/day</li>
+        <li>50 scans/day</li>
+        <li>Camera + photo import</li>
+        <li>Best value for regular use</li>
+      </ul>
+      <a class="price-cta outline" href="https://lovable.dev/preview/rFfWCaUntr15bXdlDA4kzcuntp1pydb4" target="_blank" rel="noopener">Get started</a>
+    </div>
+
+    <!-- Lifetime -->
+    <div class="price-card">
+      <p class="price-tier">Lifetime</p>
+      <p class="price-amount"><sup>$</sup>89</p>
+      <p class="price-period">One-time · forever</p>
+      <ul class="price-features">
+        <li>Everything, forever</li>
+        <li>30,000 voice characters/day</li>
+        <li>50 scans/day</li>
+        <li>Camera + photo import</li>
+        <li>For students &amp; serious learners</li>
+      </ul>
+      <a class="price-cta outline" href="https://lovable.dev/preview/rFfWCaUntr15bXdlDA4kzcuntp1pydb4" target="_blank" rel="noopener">Get started</a>
+    </div>
+
+  </div>
+  <p style="margin-top:1.5rem; font-size:0.75rem; color:var(--muted); text-align:center;">
+    Free tier available — 3 minutes of voice/day, translation included. No credit card required.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-brand">Cutting Edge <span>AI</span> &mdash; Global Talk</p>
+  <div class="footer-links">
+    <a href="https://cuttingedgeai.tech">Portfolio</a>
+    <a href="mailto:shabih@cuttingedgeai.tech">Contact</a>
+    <a href="https://lovable.dev/preview/rFfWCaUntr15bXdlDA4kzcuntp1pydb4" target="_blank" rel="noopener">Launch App</a>
+  </div>
+</footer>
+
+</body>
+</html>
