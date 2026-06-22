@@ -832,14 +832,16 @@
         </div>
       </div>
       <div>
-        <div class="cform">
+        <form class="cform" name="contact-shabih" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="shabihContactForm">
+          <input type="hidden" name="form-name" value="contact-shabih" />
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
           <div class="form-row">
-            <div class="ffield"><label>Full Name</label><input type="text" placeholder="Jane Smith"/></div>
-            <div class="ffield"><label>Email Address</label><input type="email" placeholder="jane@company.com"/></div>
+            <div class="ffield"><label for="s-name">Full Name</label><input id="s-name" name="name" type="text" placeholder="Jane Smith" required/></div>
+            <div class="ffield"><label for="s-email">Email Address</label><input id="s-email" name="email" type="email" placeholder="jane@company.com" required/></div>
           </div>
-          <div class="ffield"><label>Organization</label><input type="text" placeholder="Company or Project Name"/></div>
-          <div class="ffield"><label>Inquiry Type</label>
-            <select>
+          <div class="ffield"><label for="s-org">Organization</label><input id="s-org" name="organization" type="text" placeholder="Company or Project Name"/></div>
+          <div class="ffield"><label for="s-type">Inquiry Type</label>
+            <select id="s-type" name="inquiry-type">
               <option>Executive Role / Leadership</option>
               <option>Digital Transformation Consulting</option>
               <option>AI Enablement Project</option>
@@ -847,9 +849,15 @@
               <option>Other</option>
             </select>
           </div>
-          <div class="ffield"><label>Message</label><textarea rows="4" placeholder="Tell me about your project or challenge…"></textarea></div>
-          <button class="btn-submit">Send Message → ✉️</button>
-        </div>
+          <div class="ffield"><label for="s-msg">Message</label><textarea id="s-msg" name="message" rows="4" placeholder="Tell me about your project or challenge…" required></textarea></div>
+          <button type="submit" class="btn-submit" id="shabihSubmitBtn">Send Message → ✉️</button>
+          <div id="shabihSuccess" style="display:none;background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.3);border-radius:10px;padding:1rem 1.25rem;font-size:.9rem;color:var(--green);">
+            ✅ Message sent! Shabih will be in touch within 24 hours.
+          </div>
+          <div id="shabihError" style="display:none;background:rgba(224,85,85,.1);border:1px solid rgba(224,85,85,.3);border-radius:10px;padding:1rem 1.25rem;font-size:.9rem;color:#e05555;">
+            ⚠️ Something went wrong. Please email directly: <a href="mailto:shabih@cuttingedgeai.tech" style="color:#e05555;">shabih@cuttingedgeai.tech</a>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -896,6 +904,35 @@
 </footer>
 
 <script>
+  // Contact form — Netlify Forms with fetch (no page reload)
+  const shabihForm = document.getElementById('shabihContactForm');
+  if (shabihForm) {
+    shabihForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('shabihSubmitBtn');
+      const success = document.getElementById('shabihSuccess');
+      const error = document.getElementById('shabihError');
+      btn.textContent = 'Sending…'; btn.disabled = true;
+      success.style.display = 'none'; error.style.display = 'none';
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: new URLSearchParams(new FormData(shabihForm)).toString()
+        });
+        if (res.ok) {
+          success.style.display = 'block';
+          shabihForm.reset();
+          btn.textContent = 'Send Message → ✉️';
+        } else { throw new Error('Network response not ok'); }
+      } catch {
+        error.style.display = 'block';
+        btn.textContent = 'Send Message → ✉️';
+      }
+      btn.disabled = false;
+    });
+  }
+
   // Theme
   const toggle = document.getElementById('themeToggle');
   const html = document.documentElement;
