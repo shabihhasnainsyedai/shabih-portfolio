@@ -470,9 +470,11 @@
         </div>
       </div>
       <div>
-        <form class="cform" name="contact-firm" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="firmContactForm">
-          <input type="hidden" name="form-name" value="contact-firm" />
-          <p style="display:none;"><label>Don't fill this out: <input name="bot-field"/></label></p>
+        <form class="cform" action="https://api.web3forms.com/submit" method="POST" id="firmContactForm">
+          <input type="hidden" name="access_key" value="22cd7ae9-2c5c-4e07-84ae-f0510cf854c8" />
+          <input type="hidden" name="subject" value="New Inquiry - Cutting Edge AI Website" />
+          <input type="hidden" name="from_name" value="Cutting Edge AI Contact Form" />
+          <input type="checkbox" name="botcheck" style="display:none;" />
           <div class="form-row">
             <div class="ffield"><label for="firm-name">Full Name</label><input id="firm-name" name="name" type="text" placeholder="Jane Smith" required/></div>
             <div class="ffield"><label for="firm-email">Email Address</label><input id="firm-email" name="email" type="email" placeholder="jane@company.com" required/></div>
@@ -515,7 +517,7 @@
 </footer>
 
 <script>
-  // Contact form — Netlify Forms with fetch (no page reload)
+  // Contact form — Web3Forms
   const firmForm = document.getElementById('firmContactForm');
   if (firmForm) {
     firmForm.addEventListener('submit', async (e) => {
@@ -526,16 +528,17 @@
       btn.textContent = 'Sending…'; btn.disabled = true;
       success.style.display = 'none'; error.style.display = 'none';
       try {
-        const res = await fetch('/', {
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          body: new URLSearchParams(new FormData(firmForm)).toString()
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify(Object.fromEntries(new FormData(firmForm)))
         });
-        if (res.ok) {
+        const data = await res.json();
+        if (data.success) {
           success.style.display = 'block';
           firmForm.reset();
           btn.textContent = 'Send Message → ✉️';
-        } else { throw new Error('Network response not ok'); }
+        } else { throw new Error(data.message); }
       } catch {
         error.style.display = 'block';
         btn.textContent = 'Send Message → ✉️';
